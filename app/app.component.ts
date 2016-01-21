@@ -1,22 +1,23 @@
 import {Component} from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {PostListComponent} from './posts/post-list.component'
-import {HomeComponent} from './home/home.component'
-import {PostService} from './posts/post.service'
+import {HomeComponent} from './page/home.component'
+import {LoginComponent} from './page/login.component'
 
 @Component({
-    selector: 'my-app',
+    selector: 'idevjs-app',
     templateUrl: 'app/app.component.html',
-    directives: [PostListComponent, ROUTER_DIRECTIVES],
-    providers: [PostService]
+    directives: [HomeComponent, ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
-    {path: '/', name: 'Posts', component: PostListComponent, useAsDefault: true},
-    {path: '/posts', name: 'Home', component: HomeComponent},
-    // {path: '/u/:name', name: 'AccountDetail', component: AccountComponent}
+    {path: '/', name: 'Home', component: HomeComponent, useAsDefault: true},
+    {path: '/login', name: 'Login', component: LoginComponent},
+    // {path: '/signup', name: 'Signup', component: SignupComponent},
+    // {path: '/explore', name: 'Explore', component: PostListComponent},
+    // {path: '/post/:id', name: 'PostDetail', component: PostDetailComponent},
+    // {path: '/u/:name', name: 'AccountDetail', component: AccountComponent},
     // {path: '/account/:name', name: 'AccountDetail', component: AccountComponent}
-    // {path: '/post/:id', name: 'PostDetail', component: PostDetailComponent}
 ])
 
 export class AppComponent {

@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core'
-import {PostListComponent} from '../posts/post-list.component'
-import {Nav} from '../header/nav.component'
+import {PostListComponent} from '../post/post-list.component'
+import {NavComponent} from '../header/nav.component'
 
 @Component({
     selector: 'home-page',
     templateUrl: 'app/page/home.component.html',
-    directives: [PostListComponent, Nav]
+    directives: [PostListComponent, NavComponent]
 })
 
 export class HomeComponent {

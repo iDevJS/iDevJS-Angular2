@@ -5,9 +5,10 @@ import {Post} from './post'
 
 @Component({
     selector: 'post-list',
-    templateUrl: 'app/posts/post-list.component.html',
-    // styleUrls: ['app/posts/post-list.component.css'],
-    directives: [PostItemComponent]
+    templateUrl: 'app/post/post-list.component.html',
+    // styleUrls: ['app/post/post-list.component.css'],
+    directives: [PostItemComponent],
+    providers: [PostService]
 })
 
 export class PostListComponent implements OnInit {

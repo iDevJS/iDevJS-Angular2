@@ -3,8 +3,8 @@ import {Post} from './post'
 
 @Component({
     selector: 'post-item',
-    templateUrl: 'app/posts/post-item.component.html',
-    // styleUrls: ['app/posts/post-item.component.css'],
+    templateUrl: 'app/post/post-item.component.html',
+    // styleUrls: ['app/post/post-item.component.css'],
     inputs: ['post']
 })
 

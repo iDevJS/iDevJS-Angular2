@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {PostListComponent} from './posts/post-list.component'
+import {PostListComponent} from './post/post-list.component'
 import {HomeComponent} from './page/home.component'
 import {LoginComponent} from './page/login.component'
 

@@ -3,7 +3,7 @@ import {CommentService} from './comment.service'
 
 @Component({
     selector: 'comment-item',
-    templateUrl: 'app/comment/cooment-item.component.html',
+    templateUrl: 'app/comment/comment-item.component.html',
     inputs: ['comment']
 })
 

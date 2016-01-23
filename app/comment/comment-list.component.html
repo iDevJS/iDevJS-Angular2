@@ -1,0 +1,6 @@
+<div *ngIf="comments">
+    <comment-item *ngFor="#comment of comments"  [comment]="comment"></comment-item>
+ </div>
+<div *ngIf="!comments" class="no-comment">
+    No comments yet. Be the first one to comment.
+</div>

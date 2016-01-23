@@ -5,6 +5,7 @@ export var POSTS: Post[] = [
         'id': 'akjlsdlfjk234jkadf',
         'title': 'first post',
         'author': 'xuhong',
+        'content': 'first post',
         'create_at': 1453030514031,
         'update_at': 1453030514031,
         'last_comment_at': 1453030514031,

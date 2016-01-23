@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {PostListComponent} from './post/post-list.component'
+import {PostDetailComponent} from './page/post-detail.component'
 import {HomeComponent} from './page/home.component'
 import {LoginComponent} from './page/login.component'
 
@@ -15,7 +15,7 @@ import {LoginComponent} from './page/login.component'
     {path: '/login', name: 'Login', component: LoginComponent},
     // {path: '/signup', name: 'Signup', component: SignupComponent},
     // {path: '/explore', name: 'Explore', component: PostListComponent},
-    // {path: '/post/:id', name: 'PostDetail', component: PostDetailComponent},
+    {path: '/post/:id', name: 'PostDetail', component: PostDetailComponent},
     // {path: '/u/:name', name: 'AccountDetail', component: AccountComponent},
     // {path: '/account/:name', name: 'AccountDetail', component: AccountComponent}
 ])

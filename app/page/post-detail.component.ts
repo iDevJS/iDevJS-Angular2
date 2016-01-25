@@ -21,4 +21,8 @@ export class PostDetailComponent implements OnInit {
     ngOnInit(){
         this._postService.getPost(this._pid).then()
     }
+    
+    like(){
+        
+    }
 }

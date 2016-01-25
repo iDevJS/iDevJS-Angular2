@@ -6,6 +6,8 @@ import {Component} from 'angular2/core'
 })
 
 export class ComponentBox {
+    public content:string
+    
     onkeyup(){
         
     }

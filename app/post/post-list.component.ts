@@ -17,6 +17,7 @@ export class PostListComponent implements OnInit {
     constructor(private _postService: PostService) {}
     
     getPosts() {
+        // this.http.get('http://api.iknew.today:4000/post')
         this._postService.getPostList().then(posts => this.posts = posts)
     }
     ngOnInit(){

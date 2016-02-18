@@ -1,4 +1,4 @@
-<article>
-    <span>{{comment.author}}</span>
+<article *ngIf="comment">
+    <span (click)="reply(comment)">{{comment.author.name}}</span>
     <section>{{comment.content}}</section>
 </article>

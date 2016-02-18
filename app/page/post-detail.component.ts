@@ -19,7 +19,12 @@ export class PostDetailComponent implements OnInit {
     }
     
     ngOnInit(){
-        this._postService.getPost(this._pid).then()
+        this._postService.getPost(this._pid)
+        .subscribe(
+            res => this.post = res,
+            err => alert(err),
+            () => console.log('get post')
+        )
     }
     
     like(){

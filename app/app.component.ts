@@ -1,13 +1,14 @@
 import {Component} from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {PostDetailComponent} from './page/post-detail.component'
+import {NavComponent} from './header/nav.component'
 import {HomeComponent} from './page/home.component'
 import {LoginComponent} from './page/login.component'
 
 @Component({
     selector: 'idevjs-app',
     templateUrl: 'app/app.component.html',
-    directives: [HomeComponent, ROUTER_DIRECTIVES]
+    directives: [NavComponent, HomeComponent, ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([

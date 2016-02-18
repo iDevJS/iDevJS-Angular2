@@ -1,5 +1,5 @@
 <article class="post-item" *ngIf="post">
-    <h2><a href="post/{{post.id}}">{{post.title}}</a></h2>
+    <h2><a [routerLink]="['PostDetail', {id:post._id}]">{{post.title}}</a></h2>
     <span class="post-author">{{post.author}}</span>   
     <span class="comment-count">{{post.comment_count}}</span>
 </article>

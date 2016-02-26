@@ -1,7 +1,7 @@
 <div *ngIf="comments">
-    <comment-item *ngFor="#comment of comments"  [comment]="comment" (reply-user)="onReplyUser($event)"></comment-item>
+    <comment-item *ngFor="#comment of comments"  [comment]="comment" (likeComment)="onLikeComment($event)" (replyUser)="onReplyUser($event)"></comment-item>
  </div>
 <div *ngIf="!comments" class="no-comment">
     No comments yet. Be the first one to comment.
 </div>
-<comment-box [(content)]="content" (add-comment)="onAddComment($event)"></comment-box>
+<comment-box [(content)]="content" [(isSubmitting)]="isSubmitting" (addComment)="onAddComment($event)"></comment-box>

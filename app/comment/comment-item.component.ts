@@ -5,22 +5,23 @@ import {CommentService} from './comment.service'
     selector: 'comment-item',
     templateUrl: 'app/comment/comment-item.component.html',
     inputs: ['comment'],
-    outputs: ['replyUser']
+    outputs: ['replyUser', 'likeComment']
 })
 
 export class CommentItemComponent {
     private replyUser = new EventEmitter<string>()
+    private likeComment = new EventEmitter<string>()
     
     constructor(){
         
     }
     
-    reply(name){
-        this.replyUser.next(name)
+    reply(comment){
+        this.replyUser.emit(comment.author.name)
     }
     
-    like(id){
-        
+    like(comment){
+       this.likeComment.emit(comment._id)
     }
     
 }

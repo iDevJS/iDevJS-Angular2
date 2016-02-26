@@ -1,4 +1,5 @@
 <article *ngIf="comment">
     <span (click)="reply(comment)">{{comment.author.name}}</span>
+    <span (click)="like(comment)">♡{{comment.like_count}}</span>
     <section>{{comment.content}}</section>
 </article>

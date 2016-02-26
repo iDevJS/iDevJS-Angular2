@@ -14,12 +14,13 @@ import {CommentService} from './comment.service'
 
 export class CommentListComponent implements OnInit{
     public comments:Comment[]
+    public isSubmitting: boolean
     private content: string
     private _pid: string
     
     constructor(private _commentService: CommentService, routeParams: RouteParams){
         this._pid = routeParams.get('id')
-        this.content = 'placeholder'
+        this.content = 'abc'
     }
     
     ngOnInit(){
@@ -31,11 +32,21 @@ export class CommentListComponent implements OnInit{
         )
     }
     
-    onReplyUser(value){
-        console.log(value)
+    onReplyUser(name){
+        console.log(this.content)
+        this.content += ` @${name} `
+    }
+    
+    onLikeComment(id){
+        console.log(id)
     }
     
     onAddComment(value){
-        console.log('text:', value)
+        this._commentService.addPostComment(this._pid, value)
+        .subscribe(
+            res => {this.comments.push(res); this.content = ''},
+            err => alert(err),
+            () => this.isSubmitting = false
+        )
     }
 }

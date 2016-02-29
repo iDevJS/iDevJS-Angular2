@@ -1,7 +1,13 @@
-<article *ngIf="post">
-    <h1>{{post.title}}</h1>
-    <section class="article-body">
-        {{post.content}}
+<div class="container">
+    <section class="content">
+        <post-detail [post]="post"></post-detail>
+        <comment-list></comment-list>
     </section>
-</article>
-<comment-list></comment-list>
+    <section class="aside">
+        <div class="side-card">
+            <div class="side-card-title"></div>
+            <div class="side-card-body"></div>
+            <div class="side-card-footer"></div>
+        </div>
+    </section>
+</div>

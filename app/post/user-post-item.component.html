@@ -2,7 +2,7 @@
     <img class="stream-item-avatar avatar" src="{{post.author.gravatar}}" alt="">
     <div class="stream-item-body">
         <div class="stream-item-header">
-            <a class="fullname" [routerLink]="['AccountPage', {id:post.author._id}]">{{post.author.name}}</a>
+            <a class="fullname" href="">{{post.author.name}}</a>
             <span class="metadata">
                 <a class="node" href="" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
                 <small class="time">{{post.created_at | date}}</small>
@@ -24,6 +24,4 @@
             </span>
         </div>
     </div>
-    
-    
 </article>

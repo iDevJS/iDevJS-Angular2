@@ -1,4 +1,4 @@
 <form class="comment-box" (ngSubmit)="onSubmit(content)" >
-    <input [(ngModel)]="content" (keyup)="onkeyup($event)" cols="30"  rows="10"/>
+    <textarea [(ngModel)]="content" (ngModelChange)="contentChange.emit($event)" (keyup)="onkeyup($event)" cols="30"  rows="10"></textarea>
     <button type="submit"  [disabled]="isSubmitting">提交</button>
 </form>

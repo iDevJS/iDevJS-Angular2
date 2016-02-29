@@ -20,7 +20,7 @@ export class CommentListComponent implements OnInit{
     
     constructor(private _commentService: CommentService, routeParams: RouteParams){
         this._pid = routeParams.get('id')
-        this.content = 'abc'
+        this.content = ''
     }
     
     ngOnInit(){
@@ -33,12 +33,11 @@ export class CommentListComponent implements OnInit{
     }
     
     onReplyUser(name){
-        console.log(this.content)
-        this.content += ` @${name} `
+        this.content += `@${name} `
     }
     
     onLikeComment(id){
-        console.log(id)
+        console.log(id)      
     }
     
     onAddComment(value){

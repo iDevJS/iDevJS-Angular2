@@ -4,6 +4,7 @@ import {CommentService} from './comment.service'
 @Component({
     selector: 'comment-item',
     templateUrl: 'app/comment/comment-item.component.html',
+    styleUrls: ['app/comment/comment-item.component.css'],
     inputs: ['comment'],
     outputs: ['replyUser', 'likeComment']
 })

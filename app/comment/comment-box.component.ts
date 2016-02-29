@@ -12,13 +12,12 @@ export class CommentBoxComponent {
     private content:string
     private isSubmitting:boolean
     private addComment = new EventEmitter<string>()
+    @Output() contentChange:EventEmitter<string> = new EventEmitter()
     
     onkeyup(e){
         if(e.keyCode === 50){
             console.log('@someone')
         }
-        console.log(this.content)
-        // console.log(this.model.content)
     }
     
     onSubmit(text){

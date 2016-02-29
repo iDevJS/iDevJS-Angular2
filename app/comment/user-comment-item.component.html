@@ -9,9 +9,8 @@
                 </span>
             </a>
             <small class="time">{{comment.created_at | date: 'MM/dd'}}</small>
-            <i (click)="reply(comment)" class="material-icons icon-reply">reply</i>
             <span >
-                <i class="material-icons icon-fav" (click)="like(comment)">favorite</i>
+                <i class="material-icons icon-fav">favorite</i>
                 <small class="like-count">{{comment.likes_count}}</small>
             </span>
         </div>

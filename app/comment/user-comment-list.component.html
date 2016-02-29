@@ -1,0 +1,4 @@
+<user-comment-item *ngIf="comments" *ngFor="#comment of comments"  [comment]="comment"></user-comment-item>
+<div *ngIf="!comments" class="no-comment">
+    No comments yet. Be the first one to comment.
+</div>

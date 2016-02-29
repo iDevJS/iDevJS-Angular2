@@ -28,7 +28,7 @@ export class CommentService {
     }
     
     getUserComment(id){
-        return this.http.get(`${this.API_BASE}/${id}/comment`, this.options)
+        return this.http.get(`${this.API_BASE}/user/${id}/comment`, this.options)
         .map(res => res.json())
     }
 }

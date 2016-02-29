@@ -1,0 +1,9 @@
+
+.icon-reply, .icon-fav{
+    font-size: 14px;
+    color: #8899a6;
+    cursor: pointer;
+}
+.icon-fav.faved{
+    color: red
+}

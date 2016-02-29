@@ -1,0 +1,5 @@
+<form (ngSubmit)="onSubmit(post)" *ngIf="post">
+    <input type="text" [(ngModel)]="post.title" />
+    <textarea [(ngModel)]="post.content" id="" cols="30" rows="10"></textarea>
+    <button type="submit">submit</button>
+</form>

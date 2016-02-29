@@ -1,26 +1,30 @@
 import {Injectable} from 'angular2/core'
-import {Http, Headers} from 'angular2/http'
+import {Http, Headers, RequestOptions} from 'angular2/http'
 
 @Injectable()
 export class PostService {
-    API_BASE:string = 'http://api.iknew.today:4000/post'
-    headers
+    API_BASE:string = 'http://api.iknew.today:4000'
+    options
     
     constructor (public http:Http){
-       this.headers = new Headers()
-       this.headers.append('Authorization', 'Bearer cfd6275cb154ddb57d18f544544d72475f959964')
+       let headers = new Headers({
+           'Content-type': 'application/json',
+           'Authorization': 'Bearer cfd6275cb154ddb57d18f544544d72475f959964'
+       })
+       this.options = new RequestOptions({
+           headers: headers
+       })
     }
     getPostList(){
-        return this.http.get(this.API_BASE, {
-            headers: this.headers
-        })
+        return this.http.get(`${this.API_BASE}/post`, this.options)
         .map(res => res.json())
     }
     getPost(id: string) {
-        return this.http.get(`${this.API_BASE}/${id}`, {
-            headers: this.headers
-        })
+        return this.http.get(`${this.API_BASE}/post/${id}`, this.options)
         .map(res => res.json())
     }
-    
+    getUserPostList(id:string){
+        return this.http.get(`${this.API_BASE}/user/${id}/post`, this.options)
+        .map(res => res.json())
+    }
 }

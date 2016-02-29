@@ -1,5 +1,4 @@
 import {Component, OnInit} from 'angular2/core'
-import {PostService} from './post.service'
 import {PostItemComponent} from './post-item.component'
 import {Post} from './post'
 
@@ -7,24 +6,13 @@ import {Post} from './post'
     selector: 'post-list',
     templateUrl: 'app/post/post-list.component.html',
     // styleUrls: ['app/post/post-list.component.css'],
-    directives: [PostItemComponent],
-    providers: [PostService]
+    inputs: ['posts'],
+    directives: [PostItemComponent]
 })
 
-export class PostListComponent implements OnInit {
+export class PostListComponent {
     public posts: Post[]
     
-    constructor(private _postService: PostService) {}
-    
-    getPosts() {
-        this._postService.getPostList()
-        .subscribe(
-            res => this.posts = res,
-            err => alert(err),
-            () => console.log('get posts')
-        )
-    }
-    ngOnInit(){
-       this.getPosts()
-    }
+    constructor() {}
+      
 }

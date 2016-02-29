@@ -1,4 +1,4 @@
-<post-item *ngIf="posts" *ngFor="#post of posts" [post]="post"></post-item>
+<user-post-item *ngIf="posts" *ngFor="#post of posts" [post]="post"></user-post-item>
 <section *ngIf="!posts">
     <div class="no-post">There are no posts yet!</div>
 </section>

@@ -5,7 +5,7 @@ import {CommentListComponent} from '../comment/comment-list.component'
 import {PostService, CommentService} from '../service/api'
 
 @Component({
-    templateUrl: 'app/page/post-detail.component.html',
+    templateUrl: 'app/pages/post-detail.component.html',
     directives: [PostDetailComponent ,CommentListComponent],
     providers: [PostService, CommentService]
 })

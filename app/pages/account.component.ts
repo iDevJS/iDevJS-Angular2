@@ -5,7 +5,7 @@ import {UserCommentListComponent} from '../comment/user-comment-list.component'
 import {PostService, CommentService} from '../service/api'
 
 @Component({
-    templateUrl: 'app/page/account.component.html',
+    templateUrl: 'app/pages/account.component.html',
     directives: [UserPostListComponent, UserCommentListComponent],
     providers: [PostService, CommentService]
 })

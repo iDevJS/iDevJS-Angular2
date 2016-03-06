@@ -4,7 +4,8 @@ import {Post} from './post'
 @Component({
     selector: 'post-editor',
     templateUrl: 'app/post/post-editor.component.html',
-    inputs: ['post']
+    inputs: ['post'],
+    outputs: ['submitPost']
 })
 
 export class PostEditorComponent {
@@ -12,7 +13,6 @@ export class PostEditorComponent {
     submitPost: EventEmitter<Object> = new EventEmitter()
     
     onSubmit(){
-        console.log(this.post)
         this.submitPost.emit(this.post)
     }
 }

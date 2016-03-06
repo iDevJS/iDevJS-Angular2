@@ -1,10 +1,12 @@
 import {Component, EventEmitter} from 'angular2/core'
+import {ROUTER_DIRECTIVES} from 'angular2/router'
 import {CommentService} from './comment.service'
 
 @Component({
     selector: 'comment-item',
     templateUrl: 'app/comment/comment-item.component.html',
     styleUrls: ['app/comment/comment-item.component.css'],
+    directives: [ROUTER_DIRECTIVES],
     inputs: ['comment'],
     outputs: ['replyUser', 'likeComment']
 })

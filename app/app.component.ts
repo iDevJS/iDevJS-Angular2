@@ -1,11 +1,12 @@
 import {Component} from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {NavComponent} from './header/nav.component'
-import {HomeComponent} from './page/home.component'
-import {LoginComponent} from './page/login.component'
-import {AccountPageComponent} from './page/account.component'
-import {PostPageComponent} from './page/post-detail.component'
-import {PostEditPageComponent} from './page/post-edit.component'
+import {HomeComponent} from './pages/home.component'
+import {NodePostComponent} from './pages/node-post.component'
+import {LoginComponent} from './pages/login.component'
+import {AccountPageComponent} from './pages/account.component'
+import {PostPageComponent} from './pages/post-detail.component'
+import {PostEditPageComponent} from './pages/post-edit.component'
 
 @Component({
     selector: 'idevjs-app',
@@ -19,6 +20,7 @@ import {PostEditPageComponent} from './page/post-edit.component'
     {path: '/login', name: 'Login', component: LoginComponent},
     // {path: '/signup', name: 'Signup', component: SignupComponent},
     // {path: '/explore', name: 'Explore', component: PostListComponent},
+    {path: '/node/:name', name: 'NodePost', component: NodePostComponent},
     {path: '/post/:id', name: 'PostDetail', component: PostPageComponent},
     {path: '/post/:id/edit', name: 'PostEdit', component: PostEditPageComponent},
     {path: '/u/:id', name: 'AccountPage', component: AccountPageComponent},

@@ -5,7 +5,7 @@ import {PostPageComponent} from './post-detail.component'
 import {PostEditorComponent} from '../post/post-editor.component'
 
 @Component({
-    templateUrl: 'app/page/post-edit.component.html',
+    templateUrl: 'app/pages/post-edit.component.html',
     directives: [PostEditorComponent],
     providers: [PostService]
 })
@@ -20,11 +20,26 @@ export class PostEditPageComponent implements OnInit{
         this.getPost()
     }
     getPost(){
-        this._postService.getPost(this._pid)
+        this._postService.getPostRaw(this._pid)
         .subscribe(
             res => this.post = res,
             err => alert(err),
             () => console.log('get post')
         )
+    }
+    onSubmitPost(post){
+        var data = {
+            title: post.title,
+            content: post.content,
+            node: post.node
+        }
+        this._postService.updatePost(this._pid, data)
+        .subscribe(
+            res => this.post = res,
+            err => alert(err),
+            () => console.log('update post')
+        )
+        
+        console.log(post)
     }
 }

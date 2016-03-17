@@ -5,7 +5,7 @@
             <a class="fullname" [routerLink]="['AccountPage', {id: post.author._id}]">{{post.author.name}}</a>
             <span class="metadata">
                 <a class="node" [routerLink]="['NodePost', {name: post.node.name}]" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
-                <small class="time"><time-ago [date]="post.created_at" [sufix]="'ago'" [afterMaxDateFormat]="'yMMdd'" [interval]="10000"></time-ago></small>
+                <small class="time"><time-ago [time]="post.created_at" [sufix]="'ago'" [afterMaxDateFormat]="'yMMdd'" [interval]="10000"></time-ago></small>
             </span>
         </div>
         <div class="stream-item-content">

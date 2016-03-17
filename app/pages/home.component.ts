@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core'
+import {Component, ChangeDetectionStrategy, OnInit} from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {PostListComponent} from '../post/post-list.component'
 import {NavComponent} from '../header/nav.component'
@@ -8,15 +8,16 @@ import {PostService} from '../service/api'
     selector: 'home-page',
     templateUrl: 'app/pages/home.component.html',
     providers: [PostService],
-    directives: [PostListComponent, NavComponent, ROUTER_DIRECTIVES]
+    directives: [PostListComponent, NavComponent, ROUTER_DIRECTIVES],
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
    public title:string = 'Let us rock'
    public posts 
    
    constructor(private _postService: PostService){
-       
+      
    }
    getPosts() {
         this._postService.getPostList()

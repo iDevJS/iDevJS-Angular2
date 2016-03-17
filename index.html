@@ -1,20 +1,21 @@
+<!Doctype html>
 <html>
 
 <head>
     <base href="/">
     <title>iDevJS with Angular 2 </title>
     <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
     <!-- 1. Load libraries -->
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/typescript/lib/typescript.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
-    
+
     <!-- 2. Configure SystemJS -->
     <script>
         // System.config({
@@ -31,7 +32,17 @@
         System.config({
             transpiler: 'typescript', 
             typescriptOptions: { emitDecoratorMetadata: true }, 
-            packages: {'app': {defaultExtension: 'ts'}} 
+            map: {
+                'ng2-timeago': 'node_modules/ng2-timeago'
+            },
+            packages: {
+                'app': {
+                    defaultExtension: 'ts'
+                },
+                'ng2-timeago': {
+                    defaultExtension: 'ts'
+                }
+            }
         });
         System.import('app/boot')
             .then(null, console.error.bind(console));

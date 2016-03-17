@@ -12,7 +12,7 @@ import {PostEditPageComponent} from './pages/post-edit.component'
     selector: 'idevjs-app',
     templateUrl: 'app/app.component.html',
     // styleUrls: ['app/app.component.css'],
-    directives: [NavComponent, HomeComponent, ROUTER_DIRECTIVES]
+    directives: [NavComponent, ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
@@ -24,7 +24,7 @@ import {PostEditPageComponent} from './pages/post-edit.component'
     {path: '/post/:id', name: 'PostDetail', component: PostPageComponent},
     {path: '/post/:id/edit', name: 'PostEdit', component: PostEditPageComponent},
     {path: '/u/:id', name: 'AccountPage', component: AccountPageComponent},
-    // {path: '/account/:name', name: 'AccountDetail', component: AccountComponent}
+    // {path: '/u/:name', name: 'AccountPage', component: AccountPageComponent}
 ])
 
 export class AppComponent {

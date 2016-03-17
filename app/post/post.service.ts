@@ -3,7 +3,7 @@ import {Http, Headers, RequestOptions} from 'angular2/http'
 
 @Injectable()
 export class PostService {
-    API_BASE:string = 'http://api.iknew.today:4000'
+    API_BASE:string = 'http://api.idevjs.com:4000'
     options
     
     constructor (public http:Http){

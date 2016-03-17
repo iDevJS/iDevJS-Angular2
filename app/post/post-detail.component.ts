@@ -1,5 +1,6 @@
 import {Component, OnInit} from 'angular2/core'
 import {RouteParams} from 'angular2/router'
+// import {MD_CARD_DIRECTIVES} from '@angular2-material/card'
 import {Post} from './post'
 import {PostService} from './post.service'
 import {PostHeaderComponent} from './post-detail-header.component'

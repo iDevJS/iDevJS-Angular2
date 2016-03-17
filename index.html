@@ -33,7 +33,8 @@
             transpiler: 'typescript', 
             typescriptOptions: { emitDecoratorMetadata: true }, 
             map: {
-                'ng2-timeago': 'node_modules/ng2-timeago'
+                'ng2-timeago': 'node_modules/ng2-timeago',
+                '@angular2-material': 'node_modules/@angular2-material/card'
             },
             packages: {
                 'app': {
@@ -41,7 +42,10 @@
                 },
                 'ng2-timeago': {
                     defaultExtension: 'ts'
-                }
+                },
+                '@angular2-material': {
+                    defaultExtension: 'ts'
+                },
             }
         });
         System.import('app/boot')

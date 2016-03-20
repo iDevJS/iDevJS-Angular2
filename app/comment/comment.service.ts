@@ -3,7 +3,7 @@ import {Http, Headers, RequestOptions} from 'angular2/http'
 
 @Injectable()
 export class CommentService {
-    public API_BASE:string = 'http://api.iknew.today:4000'
+    public API_BASE:string = 'http://api.idevjs.com:4000'
     public options
     
     constructor (public http:Http){

@@ -1,13 +1,13 @@
 import {Component, OnInit} from 'angular2/core'
 import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router'
+import {Client} from 'idevjs-angular-client/api'
+
 import {PostListComponent} from '../post/post-list.component'
 import {NavComponent} from '../header/nav.component'
-import {PostService} from '../service/api'
 
 @Component({
     selector: 'home-page',
     templateUrl: 'app/pages/home.component.html',
-    providers: [PostService],
     directives: [PostListComponent, NavComponent, ROUTER_DIRECTIVES]
 })
 
@@ -16,11 +16,11 @@ export class NodePostComponent implements OnInit{
    public title:string = 'Let us rock'
    public posts 
    
-   constructor(private _routeParams: RouteParams, private _postService: PostService){
+   constructor(private _routeParams: RouteParams, private _client: Client){
        this.node = this._routeParams.get('name')
    }
    getPosts() {
-        this._postService.getNodePostList(this.node)
+        this._client.getNodePostList(this.node)
         .subscribe(
             res => this.posts = res,
             err => alert(err),

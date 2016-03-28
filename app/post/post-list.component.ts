@@ -8,7 +8,7 @@ import {Post} from './post'
     // styleUrls: ['app/post/post-list.component.css'],
     inputs: ['posts'],
     directives: [PostItemComponent],
-    // changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class PostListComponent {

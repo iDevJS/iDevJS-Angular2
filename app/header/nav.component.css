@@ -1,0 +1,29 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-left, .navbar-right{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right{
+    justify-content: flex-end;
+}
+
+.navbar-left .navbar-item:not(:last-child), 
+.navbar-right .navbar-item:not(:last-child){
+    margin-right: 10px;
+}
+
+.idevjs-nav{
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.idevjs-nav .navbar-item a{
+    display: inline-block;
+    padding: 15px 6px;
+}

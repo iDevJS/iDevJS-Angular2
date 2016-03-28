@@ -9,7 +9,7 @@ import {Post} from './post'
     styleUrls: ['app/post/post-item.component.css'],
     directives: [ROUTER_DIRECTIVES, TimeAgo],
     inputs: ['post'],
-    // changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class PostItemComponent {

@@ -7,11 +7,12 @@ import {LoginComponent} from './pages/login.component'
 import {AccountPageComponent} from './pages/account.component'
 import {PostPageComponent} from './pages/post-detail.component'
 import {PostEditPageComponent} from './pages/post-edit.component'
+import {OAuthCallbackComponent} from './pages/oauth-callback.component'
 
 @Component({
     selector: 'idevjs-app',
     templateUrl: 'app/app.component.html',
-    // styleUrls: ['app/app.component.css'],
+    styleUrls: ['app/app.component.css'],
     directives: [NavComponent, ROUTER_DIRECTIVES]
 })
 
@@ -24,6 +25,7 @@ import {PostEditPageComponent} from './pages/post-edit.component'
     {path: '/post/:id', name: 'PostDetail', component: PostPageComponent},
     {path: '/post/:id/edit', name: 'PostEdit', component: PostEditPageComponent},
     {path: '/u/:id', name: 'AccountPage', component: AccountPageComponent},
+    {path: '/oauth/callback/:name', name: 'OAuthCallback', component: OAuthCallbackComponent}
     // {path: '/u/:name', name: 'AccountPage', component: AccountPageComponent}
 ])
 

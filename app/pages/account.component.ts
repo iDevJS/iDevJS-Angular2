@@ -2,12 +2,11 @@ import {Component, OnInit} from 'angular2/core'
 import {RouteParams} from 'angular2/router'
 import {UserPostListComponent} from '../post/user-post-list.component'
 import {UserCommentListComponent} from '../comment/user-comment-list.component'
-import {PostService, CommentService} from '../service/api'
+import {Client} from 'idevjs-angular-client/api'
 
 @Component({
     templateUrl: 'app/pages/account.component.html',
-    directives: [UserPostListComponent, UserCommentListComponent],
-    providers: [PostService, CommentService]
+    directives: [UserPostListComponent, UserCommentListComponent]
 })
 
 export class AccountPageComponent implements OnInit{
@@ -15,7 +14,7 @@ export class AccountPageComponent implements OnInit{
     public comments
     private _uid: string
      
-    constructor(private _postService: PostService, private _commentService: CommentService, private _routeParams: RouteParams){
+    constructor(private _client: Client, private _routeParams: RouteParams){
         this._uid = this._routeParams.get('id')
     }
     ngOnInit(){
@@ -23,7 +22,7 @@ export class AccountPageComponent implements OnInit{
         this.getComments()
     }
     getPosts() {
-        this._postService.getUserPostList(this._uid)
+        this._client.getUserPostList(this._uid)
         .subscribe(
             res => this.posts = res,
             err => alert(err),
@@ -31,7 +30,7 @@ export class AccountPageComponent implements OnInit{
         )
     }
     getComments(){
-        this._commentService.getUserComment(this._uid)
+        this._client.getUserCommentList(this._uid)
         .subscribe(
             res => this.comments = res,
             err => alert(err),

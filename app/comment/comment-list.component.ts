@@ -1,15 +1,15 @@
-import {Component, OnInit} from 'angular2/core'
+import {Component, ChangeDetectionStrategy, OnInit} from 'angular2/core'
 import {RouteParams} from 'angular2/router'
 import {Comment} from './comment'
 import {CommentItemComponent} from './comment-item.component'
 import {CommentBoxComponent} from './comment-box.component'
-import {CommentService} from './comment.service'
+import {Client} from 'idevjs-angular-client/api'
 
 @Component({
     selector: 'comment-list',
     templateUrl: 'app/comment/comment-list.component.html',
     directives: [CommentItemComponent, CommentBoxComponent],
-    providers: [CommentService]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CommentListComponent implements OnInit{
@@ -18,13 +18,13 @@ export class CommentListComponent implements OnInit{
     private content: string
     private _pid: string
     
-    constructor(private _commentService: CommentService, routeParams: RouteParams){
+    constructor(private _client: Client, routeParams: RouteParams){
         this._pid = routeParams.get('id')
         this.content = ''
     }
     
     ngOnInit(){
-        this._commentService.getPostComment(this._pid)
+        this._client.getPostCommentList(this._pid)
         .subscribe(
             res => this.comments = res,
             err => alert(err),
@@ -41,7 +41,7 @@ export class CommentListComponent implements OnInit{
     }
     
     onAddComment(value){
-        this._commentService.addPostComment(this._pid, value)
+        this._client.addPostComment(this._pid, value)
         .subscribe(
             res => {this.comments.push(res); this.content = ''},
             err => alert(err),

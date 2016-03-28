@@ -4,6 +4,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router'
 @Component({
     selector: 'idevjs-nav',
     templateUrl: 'app/header/nav.component.html',
+    styleUrls: ['app/header/nav.component.css'],
     directives: [ROUTER_DIRECTIVES]
 })
 

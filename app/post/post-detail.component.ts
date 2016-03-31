@@ -1,16 +1,14 @@
 import {Component, OnInit} from 'angular2/core'
-import {RouteParams} from 'angular2/router'
-// import {MD_CARD_DIRECTIVES} from '@angular2-material/card'
+import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router'
 import {Post} from './post'
 import {Client} from 'idevjs-angular-client/api'
-import {PostHeaderComponent} from './post-detail-header.component'
-import {PostFooterComponent} from './post-detail-footer.component'
 
 @Component({
     selector: 'post-detail',
     templateUrl: 'app/post/post-detail.component.html',
-    directives: [PostHeaderComponent, PostFooterComponent],
-    inputs: ['post']
+    styleUrls: ['app/post/post-detail.component.css'],
+    inputs: ['post'],
+    directives: [ROUTER_DIRECTIVES]
 })
 
 export class PostDetailComponent{

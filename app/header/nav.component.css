@@ -18,12 +18,15 @@
     margin-right: 10px;
 }
 
-.idevjs-nav{
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 30px;
-}
-
-.idevjs-nav .navbar-item a{
+.navbar-item a{
     display: inline-block;
     padding: 15px 6px;
+}
+
+.navbar-item .navbar-brand{
+    text-indent: -999px;
+    background-image: url(/img/transparent-logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    
 }

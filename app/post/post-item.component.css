@@ -2,3 +2,14 @@
     font-size: 16px;
     margin: 10px 10px 10px 0;
 }
+
+.post-item-title a{ 
+    /*http://nipponcolors.com/#uguisucha*/
+    color: #6C6024;
+    transition: color ease-in .3s;
+}
+
+.post-item-title a:hover{
+    color: #FEB62A;
+    /**/
+}

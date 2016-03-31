@@ -1,6 +1,6 @@
 <div class="container">
     <section class="content">
-        <post-detail [post]="post"></post-detail>
+        <post-detail *ngIf="post" [post]="post"></post-detail>
         <comment-list></comment-list>
     </section>
     <section class="aside">

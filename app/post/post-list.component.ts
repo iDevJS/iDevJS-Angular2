@@ -5,7 +5,7 @@ import {Post} from './post'
 @Component({
     selector: 'post-list',
     templateUrl: 'app/post/post-list.component.html',
-    // styleUrls: ['app/post/post-list.component.css'],
+    styleUrls: ['app/post/post-list.component.css'],
     inputs: ['posts'],
     directives: [PostItemComponent],
     changeDetection: ChangeDetectionStrategy.OnPush

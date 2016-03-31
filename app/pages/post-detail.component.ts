@@ -6,7 +6,8 @@ import {Client} from 'idevjs-angular-client/api'
 
 @Component({
     templateUrl: 'app/pages/post-detail.component.html',
-    directives: [PostDetailComponent ,CommentListComponent]
+    directives: [PostDetailComponent ,CommentListComponent],
+    styleUrls: ['app/pages/post-detail.component.css']
 })
 
 export class PostPageComponent implements OnInit{

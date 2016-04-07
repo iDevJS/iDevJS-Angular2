@@ -1,4 +1,9 @@
-<form class="comment-box" (ngSubmit)="onSubmit(content)" >
-    <textarea [(ngModel)]="content" (ngModelChange)="contentChange.emit($event)" (keyup)="onkeyup($event)" cols="30"  rows="10"></textarea>
-    <button type="submit"  [disabled]="isSubmitting">提交</button>
+<form class="comment-box block-card" (ngSubmit)="onSubmit(content)" >
+    <div class="comment-box-header">回复</div>
+    <div class="comment-box-body">
+        <textarea [(ngModel)]="content" (ngModelChange)="contentChange.emit($event)" (keyup)="onkeyup($event)" cols="30"  rows="6"></textarea>   
+    </div>
+    <div class="comment-box-footer">
+        <button type="submit" class="btn btn-default"  [disabled]="isSubmitting">提交</button>
+    </div>
 </form>

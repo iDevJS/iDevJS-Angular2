@@ -6,6 +6,7 @@ import {NodePostComponent} from './pages/node-post.component'
 import {LoginComponent} from './pages/login.component'
 import {AccountPageComponent} from './pages/account.component'
 import {PostPageComponent} from './pages/post-detail.component'
+import {PostCreatePageComponent} from './pages/post-create.component'
 import {PostEditPageComponent} from './pages/post-edit.component'
 import {OAuthCallbackComponent} from './pages/oauth-callback.component'
 
@@ -22,6 +23,7 @@ import {OAuthCallbackComponent} from './pages/oauth-callback.component'
     // {path: '/signup', name: 'Signup', component: SignupComponent},
     // {path: '/explore', name: 'Explore', component: PostListComponent},
     {path: '/node/:name', name: 'NodePost', component: NodePostComponent},
+    {path: '/post/new', name: 'PostCreate', component: PostCreatePageComponent},
     {path: '/post/:id', name: 'PostDetail', component: PostPageComponent},
     {path: '/post/:id/edit', name: 'PostEdit', component: PostEditPageComponent},
     {path: '/u/:id', name: 'AccountPage', component: AccountPageComponent},

@@ -1,11 +1,18 @@
 <div class="container">
     <section class="content">
-        <post-list [posts]="posts"></post-list>
+        <post-list class="block-card" [posts]="posts"></post-list>
     </section>
     <section class="aside">
-        <div class="side-card">
+        <div class="side-card block-card">
+            <div class="side-card-body">
+                <a class="btn btn-block" [routerLink]="['PostCreate']">新建话题</a>
+            </div>
+        </div>
+        <div class="side-card block-card">
             <div class="side-card-title"></div>
-            <div class="side-card-body"></div>
+            <div class="side-card-body">
+                <img src="https://cdn.v2ex.co/friends/wilddog/wilddog_201604_big.jpg" alt="">
+            </div>
             <div class="side-card-footer"></div>
         </div>
     </section>

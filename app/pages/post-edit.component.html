@@ -1,11 +1,19 @@
 <div class="container">
     <section class="content">
-        <post-editor [post]="post" (submitPost)="onSubmitPost($event)"></post-editor>
+        <div class="page-nav">
+            <ul class="breadcrumb">
+                <li><a href="">iDevJS</a></li>
+                <li>编辑话题</li>
+            </ul>
+        </div>
+        <post-editor class="block-card" [post]="post" *ngIf="post" (submitPost)="onSubmitPost($event)"></post-editor>
     </section>
     <section class="aside">
-        <div class="side-card">
+        <div class="side-card block-card">
             <div class="side-card-title"></div>
-            <div class="side-card-body"></div>
+            <div class="side-card-body">
+                <img src="https://cdn.v2ex.co/friends/wilddog/wilddog_201604_big.jpg" alt="">
+            </div>
             <div class="side-card-footer"></div>
         </div>
     </section>

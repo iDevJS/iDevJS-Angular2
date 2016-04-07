@@ -6,13 +6,14 @@ import {CommentBoxComponent} from './comment-box.component'
 import {Client} from 'idevjs-angular-client/api'
 
 @Component({
-    selector: 'comment-list',
-    templateUrl: 'app/comment/comment-list.component.html',
+    selector: 'post-comment',
+    templateUrl: 'app/comment/post-comment.component.html',
+    styleUrls: ['app/comment/post-comment.component.css'],
     directives: [CommentItemComponent, CommentBoxComponent],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CommentListComponent implements OnInit{
+export class PostCommentComponent implements OnInit{
     public comments:Comment[]
     public isSubmitting: boolean
     private content: string

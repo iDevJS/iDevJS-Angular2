@@ -2,40 +2,44 @@ import {Component, OnInit} from 'angular2/core'
 import {RouteParams} from 'angular2/router'
 import {Client} from 'idevjs-angular-client/api'
 import {PostEditorComponent} from '../post/post-editor.component'
+import {IPost} from '../post/post'
 
 @Component({
-    templateUrl: 'app/pages/post-edit.component.html',
+    selector: 'create-post',
+    templateUrl: 'app/pages/post-create.component.html',
     directives: [PostEditorComponent]
 })
 
 export class PostCreatePageComponent implements OnInit{
-    public post
-    private _pid:string
-    constructor(private _routeParams: RouteParams, private _client: Client){
-       this._pid = this._routeParams.get('id') 
+    public post:any
+    constructor(private _client: Client){
+       this.post = {
+           title: '',
+           content: '',
+           node: {
+               name: '',
+               tabs: []
+           },
+           tab: ''
+       }
     }
     ngOnInit(){
-        this.getNodeList()
+        
     }
-    getNodeList(){
-        this._client.getPostRaw(this._pid)
-        .subscribe(
-            res => this.post = res,
-            err => alert(err),
-            () => console.log('get post')
-        )
-    }
+    
     onSubmitPost(post){
-        var data = {
+        let data = {
             title: post.title,
             content: post.content,
-            node: post.node.name
+            node: post.node.name,
+            tab: post.tab,
+            content_format: 'markdown'
         }
-        this._client.updatePost(this._pid, data)
+        this._client.addPost(data)
         .subscribe(
             res => this.post = res,
             err => alert(err),
-            () => console.log('update post')
+            () => console.log('added post')
         )
       
     }

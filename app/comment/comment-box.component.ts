@@ -4,6 +4,7 @@ import {NgForm} from 'angular2/common'
 @Component({
     selector: 'comment-box',
     templateUrl: 'app/comment/comment-box.component.html',
+    styleUrls: ['app/comment/comment-box.component.css'],
     inputs: ['content', 'isSubmitting'],
     outputs: ['addComment']
 })

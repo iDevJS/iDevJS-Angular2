@@ -15,8 +15,8 @@
                 <small class="like-count">{{comment.likes_count}}</small>
             </span>
         </div>
-        <div class="stream-item-content">
-            {{comment.content}}
+        <div class="stream-item-content" [innerHTML]="comment.content">
+           
         </div>
         <div class="stream-item-footer">
             

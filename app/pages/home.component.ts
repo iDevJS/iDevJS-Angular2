@@ -2,7 +2,6 @@ import {Component, ChangeDetectionStrategy, OnInit} from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {PostListComponent} from '../post/post-list.component'
 import {NavComponent} from '../header/nav.component'
-import {PostService} from '../service/api'
 import {Client} from 'idevjs-angular-client/api'
 
 @Component({

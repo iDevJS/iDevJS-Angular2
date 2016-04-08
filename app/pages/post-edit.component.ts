@@ -5,6 +5,7 @@ import {PostPageComponent} from './post-detail.component'
 import {PostEditorComponent} from '../post/post-editor.component'
 
 @Component({
+    selector: 'edit-post',
     templateUrl: 'app/pages/post-edit.component.html',
     directives: [PostEditorComponent]
 })
@@ -30,7 +31,8 @@ export class PostEditPageComponent implements OnInit{
         var data = {
             title: post.title,
             content: post.content,
-            node: post.node.name
+            node: post.node.name,
+            tab: post.tab
         }
         this._client.updatePost(this._pid, data)
         .subscribe(

@@ -1,5 +1,25 @@
-<div *ngIf="post">
-    <post-header [post]="post"></post-header>
-    <section class="article-body" [innerHTML]="post.content"></section>
-    <post-footer [post]="post"></post-footer>
-</div>
+<post-header>
+    <div class="post-header-left">
+        <ol class="breadcrumb">
+                <li><a [routerLink]="['Home']">iDevJS</a></li>
+                <li><a [routerLink]="['NodePost', {name: post.node.name}]">{{post.node.alias}}</a></li>
+                <li><a href="">{{post.tab}}</a></li>
+            </ol>
+        <h1 class="post-title">{{post.title}}</h1>
+        <ul class="post-metadata">
+            <li><a [routerLink]="['AccountPage', {id: post.author._id}]">{{post.author.name}}</a></li>
+            <li><time>{{post.created_at | date: 'short'}}</time></li>
+            <li>{{post.views_count}}次查看</li>
+        </ul>
+    </div>
+    <div class="post-header-right">
+        <img post-avatar src="{{post.author.gravatar}}" alt=""/>
+    </div>
+</post-header>
+<post-body class="article-body yue" [innerHTML]="post.content"></post-body>
+<post-footer>
+
+</post-footer>
+
+<comment-list></comment-list>
+<comment-box></comment-box>

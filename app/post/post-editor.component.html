@@ -1,5 +1,23 @@
-<form (ngSubmit)="onSubmit(post)" *ngIf="post">
-    <input type="text" [(ngModel)]="post.title" />
-    <textarea [(ngModel)]="post.content" id="" cols="30" rows="10"></textarea>
-    <button type="submit">submit</button>
+<form class="post-editor-form" (ngSubmit)="onSubmit(post)" ngForm>
+    <div class="post-editor-header input-group">
+        <span class="select">
+            <select [(ngModel)]="post.node.name" (ngModelChange)="onSelectNode($event)" class="post-node-select form-control" name="" id="">
+                <option value="">选择节点</option>
+                <option *ngFor="#node of nodeList" [value]="node.name">{{node.alias}}</option>
+            </select>
+        </span>
+        <span class="select">
+            <select [(ngModel)]="post.tab" class="post-tab-select form-control" name="" id="">
+                <option value="">选择版块</option>
+                <option *ngFor="#tab of tabList" [value]="tab.name">{{tab.alias}}</option>
+            </select>
+        </span>
+        <input class="post-title-control form-control" type="text" placeholder="请输入标题" [(ngModel)]="post.title" />
+    </div>
+    <div class="post-editor-body">
+        <textarea placeholder="请输入话题内容" class="post-content-control form-control" [(ngModel)]="post.content" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="post-editor-footer">
+        <button class="btn" type="submit">submit</button>
+    </div>
 </form>

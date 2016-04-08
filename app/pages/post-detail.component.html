@@ -1,12 +1,14 @@
 <div class="container">
     <section class="content">
-        <post-detail [post]="post"></post-detail>
-        <comment-list></comment-list>
+        <post-detail class="block-card" *ngIf="post" [post]="post"></post-detail>
+        <post-comment [comments]="comments"></post-comment>
     </section>
     <section class="aside">
-        <div class="side-card">
+        <div class="side-card block-card">
             <div class="side-card-title"></div>
-            <div class="side-card-body"></div>
+            <div class="side-card-body">
+                <img src="https://cdn.v2ex.co/friends/wilddog/wilddog_201604_big.jpg" alt="">
+            </div>
             <div class="side-card-footer"></div>
         </div>
     </section>

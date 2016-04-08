@@ -1,7 +1,15 @@
-export interface Post {
-    id: string
+export interface INode {
+    name: string
+    alias: string
+    tabs: Array<any>
+}
+
+export interface IPost {
+    _id: string
     title: string
-    author: string
+    author: Object
+    node: INode
+    tab: string
     content: string
     create_at: number
     update_at: number

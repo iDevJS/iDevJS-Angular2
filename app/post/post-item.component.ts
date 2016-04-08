@@ -1,7 +1,7 @@
 import {Component, ChangeDetectionStrategy} from 'angular2/core'
 import {ROUTER_DIRECTIVES} from 'angular2/router'
 import {TimeAgo} from 'ng2-timeago/timeago'
-import {Post} from './post'
+import {IPost} from './post'
 
 @Component({
     selector: 'post-item',
@@ -13,5 +13,5 @@ import {Post} from './post'
 })
 
 export class PostItemComponent {
-    public post: Post
+    public post: IPost
 }

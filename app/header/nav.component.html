@@ -1,23 +1,26 @@
-<div class="idevjs-nav">
-    <nav class="navbar container">
-        <div class="navbar-left">
-            <div class="navbar-item">
-                <a [routerLink]="['Home']">首页</a>
-            </div>
-            <div class="navbar-item">
-                <a href="">探索</a>
-            </div>
-            <div class="navbar-item">
-                <a href="">节点</a>
-            </div>
-            <!--<a [routerLink]="['Expore']">探索</a>-->
+<nav class="navbar container">
+    <div class="navbar-left">
+        <div class="navbar-item">
+            <a [routerLink]="['Home']" class="navbar-brand">
+                iDevJS.com
+            </a>
         </div>
-        <div class="navbar-right">
-            <div class="navbar-item">
-                <a [routerLink]="['Login']">登录</a>
-            </div>
+        <div class="navbar-item">
+            <a [routerLink]="['Home']">首页</a>
+        </div>
+        <div class="navbar-item">
+            <a href="">探索</a>
+        </div>
+        <div class="navbar-item">
+            <a href="">节点</a>
+        </div>
+        <!--<a [routerLink]="['Expore']">探索</a>-->
+    </div>
+    <div class="navbar-right">
+        <div class="navbar-item">
+            <a [routerLink]="['Login']">登录</a>
+        </div>
 
-            <!--<a [routerLink]="['Signup']">注册</a>-->
-        </div>
-    </nav>
-</div>
+        <!--<a [routerLink]="['Signup']">注册</a>-->
+    </div>
+</nav>

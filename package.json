@@ -1,0 +1,43 @@
+{
+  "name": "iDevJS-Angular2",
+  "version": "1.0.0",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
+    "postinstall": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iDevJS/iDevJS-Angular2.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@angular2-material/button": "^2.0.0-alpha.2",
+    "@angular2-material/card": "^2.0.0-alpha.2",
+    "@angular2-material/checkbox": "^2.0.0-alpha.2",
+    "@angular2-material/core": "^2.0.0-alpha.2",
+    "@angular2-material/progress-circle": "^2.0.0-alpha.2",
+    "angular2": "^2.0.0-beta.13",
+    "core-js": "^2.2.2",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.35.0",
+    "idevjs-angular-client": "0.0.4",
+    "lite-server": "^2.2.0",
+    "material-design-icons": "^2.2.0",
+    "ng2-timeago": "^1.0.0",
+    "normalize.css": "^4.0.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "^5.0.0-beta.2",
+    "systemjs": "^0.19.25",
+    "typings": "^0.7.12",
+    "zone.js": "^0.6.9"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.1.0",
+    "typescript": "^1.8.7",
+    "typings": "^0.7.5"
+  }
+}

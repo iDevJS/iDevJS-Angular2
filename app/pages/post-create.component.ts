@@ -1,5 +1,5 @@
 import {Component, OnInit} from 'angular2/core'
-import {RouteParams} from 'angular2/router'
+import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router'
 import {Client} from 'idevjs-angular-client/api'
 import {PostEditorComponent} from '../post/post-editor.component'
 import {IPost} from '../post/post'
@@ -7,7 +7,7 @@ import {IPost} from '../post/post'
 @Component({
     selector: 'create-post',
     templateUrl: 'app/pages/post-create.component.html',
-    directives: [PostEditorComponent]
+    directives: [PostEditorComponent, ROUTER_DIRECTIVES]
 })
 
 export class PostCreatePageComponent implements OnInit{
@@ -28,6 +28,7 @@ export class PostCreatePageComponent implements OnInit{
     }
     
     onSubmitPost(post){
+        console.log(post)
         let data = {
             title: post.title,
             content: post.content,

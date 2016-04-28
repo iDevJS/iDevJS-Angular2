@@ -32,7 +32,7 @@ export class AccountPageComponent implements OnInit{
     getComments(){
         this._client.getUserCommentList(this._uid)
         .subscribe(
-            res => this.comments = res,
+            res => this.comments = res.map((item) => {item.content.replace(/\n/g, '<br>');return item}),
             err => alert(err),
             () => console.log('get comments')
         )

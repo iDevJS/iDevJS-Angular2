@@ -11,7 +11,9 @@ bootstrap(AppComponent, [
     ROUTER_PROVIDERS,
     provide(Client, {
         useFactory: (http) => {
-            return new Client(new AuthConfig({}), http)
+            return new Client(new AuthConfig({
+                baseUrl: 'http://api.idev:4000'
+            }), http)
         },
         deps: [Http]
     })

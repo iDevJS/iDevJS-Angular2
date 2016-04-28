@@ -1,5 +1,5 @@
 import {Component, OnInit} from 'angular2/core'
-import {RouteParams} from 'angular2/router'
+import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router'
 import {Client} from 'idevjs-angular-client/api'
 import {PostPageComponent} from './post-detail.component'
 import {PostEditorComponent} from '../post/post-editor.component'
@@ -7,11 +7,11 @@ import {PostEditorComponent} from '../post/post-editor.component'
 @Component({
     selector: 'edit-post',
     templateUrl: 'app/pages/post-edit.component.html',
-    directives: [PostEditorComponent]
+    directives: [PostEditorComponent, ROUTER_DIRECTIVES]
 })
 
 export class PostEditPageComponent implements OnInit{
-    public post
+    public post: Object
     private _pid:string
     constructor(private _routeParams: RouteParams, private _client: Client){
        this._pid = this._routeParams.get('id') 

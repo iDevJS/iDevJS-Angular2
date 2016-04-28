@@ -8,7 +8,7 @@
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    
+
     <!-- 1. Load libraries -->
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/typescript/lib/typescript.js"></script>
@@ -53,8 +53,11 @@
         System.import('app/boot')
             .then(null, console.error.bind(console));
     </script>
-    <!--<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">-->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <!--<link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/solarized-dark.css">-->
+    <!--https://highlightjs.org/static/demo/styles/monokai-sublime.css-->
+    <!--https://highlightjs.org/static/demo/styles/railscasts.css-->
     <link rel="stylesheet" href="app.css">
 </head>
 
@@ -62,6 +65,10 @@
 
 <body>
     <idevjs-app>Loading...</idevjs-app>
+    <!--<script src="https://highlightjs.org/static/highlight.pack.js"></script>-->
+    <!--<script>
+        hljs.initHighlightingOnLoad();
+    </script>-->
 </body>
 
 </html>

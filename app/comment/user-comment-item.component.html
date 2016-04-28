@@ -1,22 +1,17 @@
-<div class="comment-item stream-item" *ngIf="comment">
-    <img src="{{comment.author.gravatar}}" alt="" class="stream-item-avatar avatar">
+<div class="comment-item user-comment-item stream-item" *ngIf="comment">
     <div class="stream-item-body">
         <div class="stream-item-header">
-            <a class="stream-item-author-link" [routerLink]="['AccountPage', {id: comment.author._id}]" attr.data-user-id="{{comment.author._id}}">
-                <strong class="fullname comment-profile-fullname">{{comment.author.name}}</strong>
-                <span class="username comment-profile-username">
-                    @{{comment.author.name}}
-                </span>
-            </a>
-            <small class="time">{{comment.created_at | date: 'MM/dd'}}</small>
-            <span >
-                <i class="material-icons icon-fav">favorite</i>
-                <small class="like-count">{{comment.likes_count}}</small>
+            <span>
+                回复了 
+                <a class="stream-item-author-link" [routerLink]="['AccountPage', {id: comment.author._id}]" attr.data-user-id="{{comment.post.author._id}}"> 
+                    <strong class="fullname comment-profile-fullname">{{comment.post.author.name}}</strong>
+                </a>
+                 创建的主题：
+                <a [routerLink]="['PostDetail', {id: comment.post._id}]" >{{comment.post.title}}</a>
             </span>
+            <small class="time">{{comment.created_at | date: 'MM/dd'}}</small>
         </div>
-        <div class="stream-item-content">
-            {{comment.content}}
-        </div>
+        <div class="stream-item-content" [innerHtml]="comment.content" ></div>
         <div class="stream-item-footer">
             
         </div>

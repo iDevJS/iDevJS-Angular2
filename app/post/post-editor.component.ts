@@ -1,4 +1,4 @@
-import {Input, OnInit, Component, EventEmitter} from 'angular2/core'
+import {Input, Output, OnInit, Component, EventEmitter} from 'angular2/core'
 import {Client} from 'idevjs-angular-client/api'
 import {IPost} from './post'
 

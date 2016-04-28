@@ -1,6 +1,7 @@
 <div class="container">
     <section class="content">
         <post-list class="block-card" [posts]="posts"></post-list>
+        <ac-pagination [total]="" (onPageChange)="setPage()"></ac-pagination>
     </section>
     <section class="aside">
         <div class="side-card block-card">

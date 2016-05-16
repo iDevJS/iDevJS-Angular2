@@ -1,5 +1,5 @@
 <div class="comment-list">
-    <comment-item *ngIf="comments" *ngFor="#comment of comments" [comment]="comment" (likeComment)="onLikeComment($event)" (replyUser)="onReplyUser($event)"></comment-item>
+    <comment-item *ngIf="comments" *ngFor="let comment of comments" [comment]="comment" (likeComment)="onLikeComment($event)" (replyUser)="onReplyUser($event)"></comment-item>
     <div *ngIf="!comments" class="no-comment">
         No comments yet. Be the first one to comment.
     </div>

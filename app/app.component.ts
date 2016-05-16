@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core'
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
+import {Component} from '@angular/core'
+import {Routes, ROUTER_DIRECTIVES} from '@angular/router'
 import {NavComponent} from './header/nav.component'
 import {HomeComponent} from './pages/home.component'
 import {NodePostComponent} from './pages/node-post.component'
@@ -17,18 +17,18 @@ import {OAuthCallbackComponent} from './pages/oauth-callback.component'
     directives: [NavComponent, ROUTER_DIRECTIVES]
 })
 
-@RouteConfig([
-    {path: '/', name: 'Home', component: HomeComponent, useAsDefault: true},
-    {path: '/login', name: 'Login', component: LoginComponent},
-    // {path: '/signup', name: 'Signup', component: SignupComponent},
-    // {path: '/explore', name: 'Explore', component: PostListComponent},
-    {path: '/node/:name', name: 'NodePost', component: NodePostComponent},
-    {path: '/post/new', name: 'PostCreate', component: PostCreatePageComponent},
-    {path: '/post/:id', name: 'PostDetail', component: PostPageComponent},
-    {path: '/post/:id/edit', name: 'PostEdit', component: PostEditPageComponent},
-    {path: '/u/:id', name: 'AccountPage', component: AccountPageComponent},
-    {path: '/oauth/callback/:name', name: 'OAuthCallback', component: OAuthCallbackComponent}
-    // {path: '/u/:name', name: 'AccountPage', component: AccountPageComponent}
+@Routes([
+    { path: '/', component: HomeComponent },
+    { path: '/login', component: LoginComponent },
+    // {path: '/signup',  component: SignupComponent},
+    // {path: '/explore',  component: PostListComponent},
+    { path: '/node/:name', component: NodePostComponent },
+    { path: '/post/new', component: PostCreatePageComponent },
+    { path: '/post/:id', component: PostPageComponent },
+    { path: '/post/:id/edit', component: PostEditPageComponent },
+    { path: '/u/:id', component: AccountPageComponent },
+    { path: '/oauth/callback/:name', component: OAuthCallbackComponent }
+    // {path: '/u/:name',  Page', component: AccountPageComponent}
 ])
 
 export class AppComponent {

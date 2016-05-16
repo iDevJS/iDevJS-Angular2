@@ -1,39 +1,42 @@
-import {Component, OnInit} from 'angular2/core'
-import {RouteParams} from 'angular2/router'
+import {Component, OnInit} from '@angular/core'
+import {OnActivate, RouteSegment} from '@angular/router'
 import {PostDetailComponent} from '../post/post-detail.component'
 import {PostCommentComponent} from '../comment/post-comment.component'
-import {Client} from 'idevjs-angular-client/api'
+import {Client} from 'idevjs-angular-client'
 
 @Component({
     templateUrl: 'app/pages/post-detail.component.html',
-    directives: [PostDetailComponent ,PostCommentComponent],
+    directives: [PostDetailComponent, PostCommentComponent],
     styleUrls: ['app/pages/post-detail.component.css']
 })
 
-export class PostPageComponent implements OnInit{
+export class PostPageComponent implements OnActivate, OnInit {
     public post
     public comments
-    private _pid:string
-    constructor(private _routeParams: RouteParams, private _client: Client){
-        this._pid = this._routeParams.get('id')
+    private _pid: string
+    constructor(private _client: Client) {
+
     }
-    ngOnInit(){
+    routerOnActivate(curr: RouteSegment) {
+        this._pid = curr.getParam('id')
+    }
+    ngOnInit() {
         this.getPost()
     }
-    getPost(){
+    getPost() {
         this._client.getPost(this._pid)
-        .subscribe(
+            .subscribe(
             res => this.post = res,
             err => alert(err),
             () => console.log('get post')
-        )
+            )
     }
-    getComment(){
+    getComment() {
         this._client.getPostCommentList(this._pid)
-        .subscribe(
-            res => this.comments = res,
+            .subscribe(
+            res => this.comments = res.comments,
             err => alert(err),
             () => console.log('get Comment')
-        )
+            )
     }
 }

@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, OnInit} from 'angular2/core'
+import {Component, ChangeDetectionStrategy, OnInit} from '@angular/core'
 import {PostItemComponent} from './post-item.component'
 import {IPost} from './post'
 
@@ -13,7 +13,7 @@ import {IPost} from './post'
 
 export class PostListComponent {
     public posts: IPost[]
-    
-    constructor() {}
-      
+
+    constructor() { }
+
 }

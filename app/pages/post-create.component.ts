@@ -1,6 +1,6 @@
-import {Component, OnInit} from 'angular2/core'
-import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router'
-import {Client} from 'idevjs-angular-client/api'
+import {Component, OnInit} from '@angular/core'
+import {ROUTER_DIRECTIVES} from '@angular/router'
+import {Client} from 'idevjs-angular-client'
 import {PostEditorComponent} from '../post/post-editor.component'
 import {IPost} from '../post/post'
 
@@ -10,24 +10,23 @@ import {IPost} from '../post/post'
     directives: [PostEditorComponent, ROUTER_DIRECTIVES]
 })
 
-export class PostCreatePageComponent implements OnInit{
-    public post:any
-    constructor(private _client: Client){
-       this.post = {
-           title: '',
-           content: '',
-           node: {
-               name: '',
-               tabs: []
-           },
-           tab: ''
-       }
+export class PostCreatePageComponent implements OnInit {
+    public post: any
+    constructor(private _client: Client) {
+        this.post = {
+            title: '',
+            content: '',
+            node: {
+                name: '',
+                tabs: []
+            },
+            tab: ''
+        }
     }
-    ngOnInit(){
-        
+    ngOnInit() {
+
     }
-    
-    onSubmitPost(post){
+    onSubmitPost(post) {
         console.log(post)
         let data = {
             title: post.title,
@@ -37,11 +36,11 @@ export class PostCreatePageComponent implements OnInit{
             content_format: 'markdown'
         }
         this._client.addPost(data)
-        .subscribe(
+            .subscribe(
             res => this.post = res,
             err => alert(err),
             () => console.log('added post')
-        )
-      
+            )
+
     }
 }

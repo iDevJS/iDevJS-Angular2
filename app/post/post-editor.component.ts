@@ -1,5 +1,5 @@
-import {Input, Output, OnInit, Component, EventEmitter} from 'angular2/core'
-import {Client} from 'idevjs-angular-client/api'
+import {Input, Output, OnInit, Component, EventEmitter} from '@angular/core'
+import {Client} from 'idevjs-angular-client'
 import {IPost} from './post'
 
 @Component({
@@ -15,11 +15,11 @@ export class PostEditorComponent implements OnInit {
     post: IPost
     nodeList: Array<any>
     tabList: Array<any>
-    
+
     constructor(private _client: Client) {
         this.getNodeList()
     }
-    ngOnInit(){
+    ngOnInit() {
         this.tabList = this.post.node.tabs
     }
     // @Input()
@@ -34,9 +34,9 @@ export class PostEditorComponent implements OnInit {
             () => console.log('getList')
             )
     }
-    onSelectNode(node){
-        this.nodeList.map((item)=>{
-            if(item.name === node){
+    onSelectNode(node) {
+        this.nodeList.map((item) => {
+            if (item.name === node) {
                 this.tabList = item.tabs
             }
         })

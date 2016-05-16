@@ -1,18 +1,21 @@
 <div class="container">
     <section class="content">
-        <post-list class="block-card" [posts]="posts"></post-list>
-        <ac-pagination [total]="" (onPageChange)="setPage()"></ac-pagination>
+        <div class="post-list block-card">
+            <ngc-tab-header [tabList]="tabList" (tabChange)="setTab($event)" ></ngc-tab-header>
+            <post-item *ngIf="posts" *ngFor="let post of posts" [post]="post"></post-item>
+            <ngb-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" (pageChange)="setPage($event)"></ngb-pagination>
+        </div>
     </section>
     <section class="aside">
         <div class="side-card block-card">
             <div class="side-card-body">
-                <a class="btn btn-block" [routerLink]="['PostCreate']">新建话题</a>
+                <a class="btn btn-block btn-primary" [routerLink]="['/post/new']">新建话题</a>
             </div>
         </div>
         <div class="side-card block-card">
             <div class="side-card-title"></div>
             <div class="side-card-body">
-                <img src="https://cdn.v2ex.co/friends/wilddog/wilddog_201604_big.jpg" alt="">
+                <img src="http://cdn.v2ex.co/friends/wilddog/wilddog_20160511_big.jpg" alt="">
             </div>
             <div class="side-card-footer"></div>
         </div>

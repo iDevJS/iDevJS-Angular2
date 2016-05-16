@@ -2,14 +2,14 @@
     <img class="stream-item-avatar avatar" src="{{post.author.gravatar}}" alt="">
     <div class="stream-item-body">
         <div class="stream-item-header">
-            <a class="fullname" [routerLink]="['AccountPage', {id: post.author._id}]">{{post.author.name}}</a>
+            <a class="fullname" [routerLink]="['/u',post.author._id]">{{post.author.name}}</a>
             <span class="metadata">
-                <a class="node" [routerLink]="['NodePost', {name: post.node.name}]" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
+                <a class="node" [routerLink]="['/node', post.node.name]" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
                 <small class="time"><time-ago [time]="post.created_at" [sufix]="'ago'" [afterMaxDateFormat]="'yMMdd'" [interval]="10000"></time-ago></small>
             </span>
         </div>
         <div class="stream-item-content">
-            <h2 class="post-item-title"><a [routerLink]="['PostDetail', {id:post._id}]">{{post.title}}</a></h2>
+            <h2 class="post-item-title"><a [routerLink]="['/post', post._id]">{{post.title}}</a></h2>
             <!--<div class="post-item-body yue" [innerHTML]="post.content"></div>-->
         </div>
         <div class="stream-item-footer">

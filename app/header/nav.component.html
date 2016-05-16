@@ -1,12 +1,12 @@
 <nav class="navbar container">
     <div class="navbar-left">
         <div class="navbar-item">
-            <a [routerLink]="['Home']" class="navbar-brand">
+            <a [routerLink]="['/']" class="navbar-brand">
                 iDevJS.com
             </a>
         </div>
         <div class="navbar-item">
-            <a [routerLink]="['Home']">首页</a>
+            <a [routerLink]="['/']">首页</a>
         </div>
         <div class="navbar-item">
             <a href="">探索</a>
@@ -18,9 +18,10 @@
     </div>
     <div class="navbar-right">
         <div class="navbar-item">
-            <a [routerLink]="['Login']">登录</a>
+            <a href="https://api.idevjs.com/auth/github">登录</a>
         </div>
-
-        <!--<a [routerLink]="['Signup']">注册</a>-->
+        <div class="navbar-item">
+            <a href="https://api.idevjs.com/auth/github">注册</a>
+        </div>
     </div>
 </nav>

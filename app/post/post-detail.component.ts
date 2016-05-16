@@ -1,7 +1,7 @@
-import {Component, OnInit, Input} from 'angular2/core'
-import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router'
+import {Component, OnInit, Input} from '@angular/core'
+import {OnActivate, RouteSegment, ROUTER_DIRECTIVES} from '@angular/router'
 import {IPost} from './post'
-import {Client} from 'idevjs-angular-client/api'
+import {Client} from 'idevjs-angular-client'
 
 @Component({
     selector: 'post-detail',
@@ -11,11 +11,14 @@ import {Client} from 'idevjs-angular-client/api'
     directives: [ROUTER_DIRECTIVES]
 })
 
-export class PostDetailComponent {
+export class PostDetailComponent implements OnActivate {
     public post: IPost
     private _pid: string
-    constructor(private _client: Client, private _routeParams: RouteParams) {
-        this._pid = this._routeParams.get('id')
+    constructor(private _client: Client) {
+
+    }
+    routerOnActivate(curr: RouteSegment) {
+        this._pid = curr.getParam('id')
     }
     like() {
 

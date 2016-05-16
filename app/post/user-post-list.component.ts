@@ -1,6 +1,6 @@
-import {Component,ChangeDetectionStrategy, OnInit} from 'angular2/core'
+import {Component,ChangeDetectionStrategy, OnInit} from '@angular/core'
 import {UserPostItemComponent} from './user-post-item.component'
-import {Post} from './post'
+import {IPost} from './post'
 
 @Component({
     selector: 'user-post-list',
@@ -12,7 +12,7 @@ import {Post} from './post'
 })
 
 export class UserPostListComponent {
-    public posts: Post[]
+    public posts: IPost[]
     
     constructor() {
         

@@ -1,9 +1,9 @@
-import {Component, ChangeDetectionStrategy, OnInit} from 'angular2/core'
-import {RouteParams} from 'angular2/router'
+import {Component, Input, ChangeDetectionStrategy, OnInit} from '@angular/core'
+import {OnActivate, RouteSegment} from '@angular/router'
 import {Comment} from './comment'
 import {CommentItemComponent} from './comment-item.component'
 import {CommentBoxComponent} from './comment-box.component'
-import {Client} from 'idevjs-angular-client/api'
+import {Client} from 'idevjs-angular-client'
 
 @Component({
     selector: 'post-comment',
@@ -13,40 +13,44 @@ import {Client} from 'idevjs-angular-client/api'
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class PostCommentComponent implements OnInit{
-    public comments:Comment[]
+export class PostCommentComponent implements OnActivate, OnInit {
+    public comments: Comment[]
     public isSubmitting: boolean
     private content: string
     private _pid: string
-    
-    constructor(private _client: Client, routeParams: RouteParams){
-        this._pid = routeParams.get('id')
+
+    constructor(private _client: Client, curr: RouteSegment) {
         this.content = ''
+        this._pid = curr.getParam('id')
     }
-    
-    ngOnInit(){
+    routerOnActivate() {
+        console.log(1)
+
+    }
+    ngOnInit() {
+        console.log(2)
+        this.getComments()
+    }
+    getComments() {
         this._client.getPostCommentList(this._pid)
-        .subscribe(
-            res => this.comments = res,
+            .subscribe(
+            res => this.comments = res.comments,
             err => alert(err),
             () => console.log('get comments')
-        )
+            )
     }
-    
-    onReplyUser(name){
+    onReplyUser(name) {
         this.content += `@${name} `
     }
-    
-    onLikeComment(id){
-        console.log(id)      
+    onLikeComment(id) {
+        console.log(id)
     }
-    
-    onAddComment(value){
+    onAddComment(value) {
         this._client.addPostComment(this._pid, value)
-        .subscribe(
-            res => {this.comments.push(res); this.content = ''},
+            .subscribe(
+            res => { this.comments.push(res); this.content = '' },
             err => alert(err),
             () => this.isSubmitting = false
-        )
+            )
     }
 }

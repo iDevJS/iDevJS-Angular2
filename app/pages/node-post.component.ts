@@ -1,6 +1,6 @@
-import {Component, OnInit} from 'angular2/core'
-import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router'
-import {Client} from 'idevjs-angular-client/api'
+import {Component, OnInit} from '@angular/core'
+import {OnActivate, RouteSegment, ROUTER_DIRECTIVES} from '@angular/router'
+import {Client} from 'idevjs-angular-client'
 
 import {PostListComponent} from '../post/post-list.component'
 import {NavComponent} from '../header/nav.component'
@@ -11,23 +11,26 @@ import {NavComponent} from '../header/nav.component'
     directives: [PostListComponent, NavComponent, ROUTER_DIRECTIVES]
 })
 
-export class NodePostComponent implements OnInit{
-   private node
-   public title:string = 'Let us rock'
-   public posts 
-   
-   constructor(private _routeParams: RouteParams, private _client: Client){
-       this.node = this._routeParams.get('name')
-   }
-   getPosts() {
+export class NodePostComponent implements OnActivate, OnInit {
+    private node
+    public title: string = 'Let us rock'
+    public posts
+
+    constructor(private _client: Client) {
+
+    }
+    routerOnActivate(curr: RouteSegment) {
+        this.node = curr.getParam('name')
+    }
+    ngOnInit() {
+        this.getPosts()
+    }
+    getPosts() {
         this._client.getNodePostList(this.node)
-        .subscribe(
+            .subscribe(
             res => this.posts = res,
             err => alert(err),
             () => console.log('get posts')
-        )
-    }
-    ngOnInit(){
-       this.getPosts()
+            )
     }
 }

@@ -3,11 +3,11 @@
         <div class="stream-item-header">
             <span>
                 回复了 
-                <a class="stream-item-author-link" [routerLink]="['AccountPage', {id: comment.author._id}]" attr.data-user-id="{{comment.post.author._id}}"> 
+                <a class="stream-item-author-link" [routerLink]="['/u', comment.author._id]" attr.data-user-id="{{comment.post.author._id}}"> 
                     <strong class="fullname comment-profile-fullname">{{comment.post.author.name}}</strong>
                 </a>
                  创建的主题：
-                <a [routerLink]="['PostDetail', {id: comment.post._id}]" >{{comment.post.title}}</a>
+                <a [routerLink]="['/post', comment.post._id]" >{{comment.post.title}}</a>
             </span>
             <small class="time">{{comment.created_at | date: 'MM/dd'}}</small>
         </div>

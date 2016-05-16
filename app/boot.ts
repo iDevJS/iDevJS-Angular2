@@ -1,10 +1,10 @@
-import {bootstrap} from 'angular2/platform/browser'
-import {provide} from 'angular2/core'
-import {ROUTER_PROVIDERS} from 'angular2/router'
+import {bootstrap} from '@angular/platform-browser-dynamic'
+import {provide} from '@angular/core'
+import {ROUTER_PROVIDERS} from '@angular/router'
 import 'rxjs/add/operator/map'
-import {HTTP_PROVIDERS, Http} from 'angular2/http'
+import {HTTP_PROVIDERS, Http} from '@angular/http'
 import {AppComponent} from './app.component'
-import {Client, AuthConfig} from 'idevjs-angular-client/api'
+import {Client, AuthConfig} from 'idevjs-angular-client'
 
 bootstrap(AppComponent, [
     HTTP_PROVIDERS,

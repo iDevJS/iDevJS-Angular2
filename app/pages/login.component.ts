@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import {LoginFormComponent} from '../account/login-form.component'
 import {NavComponent} from '../header/nav.component'
 

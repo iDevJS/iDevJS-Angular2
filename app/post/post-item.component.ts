@@ -1,6 +1,6 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core'
-import {ROUTER_DIRECTIVES} from 'angular2/router'
-import {TimeAgo} from 'ng2-timeago/timeago'
+import {Component, ChangeDetectionStrategy} from '@angular/core'
+import {ROUTER_DIRECTIVES} from '@angular/router'
+import {TimeAgo} from 'ng2-timeago'
 import {IPost} from './post'
 
 @Component({

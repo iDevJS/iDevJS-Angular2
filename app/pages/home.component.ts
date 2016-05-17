@@ -1,6 +1,6 @@
 import {Component, ChangeDetectionStrategy, OnInit} from '@angular/core'
 import {ROUTER_DIRECTIVES} from '@angular/router'
-import {NgbPagination} from '../utils/pagination'
+import {AcPagination} from '../utils/pagination'
 import {NgcTabHeader} from '../utils/tab-header'
 import {PostItemComponent} from '../post/post-item.component'
 import {NavComponent} from '../header/nav.component'
@@ -10,7 +10,7 @@ import {Client} from 'idevjs-angular-client'
     selector: 'home-page',
     templateUrl: 'app/pages/home.component.html',
     styleUrls: ['app/pages/home.component.css'],
-    directives: [NgbPagination, NgcTabHeader, PostItemComponent, NavComponent, ROUTER_DIRECTIVES],
+    directives: [AcPagination, NgcTabHeader, PostItemComponent, NavComponent, ROUTER_DIRECTIVES],
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
 

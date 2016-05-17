@@ -2,11 +2,11 @@ import {Component, EventEmitter, Input, Output, OnChanges, ChangeDetectionStrate
 import {getValueInRange, toInteger} from './util';
 
 @Component({
-  selector: 'ngb-pagination',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'ac-pagination',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <nav>
-      <ul class="pagination">
+    <nav class="pagination">
+      <ul>
         <li class="page-item" [class.disabled]="!hasPrevious()">
             <a aria-label="Previous" class="page-link" (click)="selectPage(page-1)">
               <span aria-hidden="true">&laquo;</span>
@@ -28,7 +28,7 @@ import {getValueInRange, toInteger} from './util';
     </nav>
   `
 })
-export class NgbPagination implements OnChanges {
+export class AcPagination implements OnChanges {
   private _collectionSize;
   private _page = 0;
   private _pageSize = 10;

@@ -241,6 +241,8 @@ idevjs-nav{
 /*angular-component-tab-header*/
 .ac-tab-header{
   display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #E1E8ED;
 }
 
 .ac-tab-header ul{
@@ -249,76 +251,57 @@ idevjs-nav{
   flex:1;
   justify-content: flex-start;
   list-style: none;
-  padding:0
+  padding:0;
+  margin:0;
 }
 
 .ac-tab-header li{
   display: block;
+  margin-right: 4px;
 }
 
 .ac-tab-header a{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.ac-tab-header a:hover{
+  background: rgba(0,0,0,0.05);
+}
+.ac-tab-header .is-active a{
+  background: #3A3335;
+  color: #fff;
 }
 
-ngb-pagination{
+ac-pagination{
   padding:10px;
 }
-/*bootstrap pagination*/
-.pagination {
-  display: inline-block;
-  padding-left: 0;
-  margin: 0;
-  border-radius: 0.25rem;
+/*angular component pagination*/
+.ac-pagination {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
-.page-item {
-  display: inline;
+.ac-pagination ul{
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 
-.page-item:first-child .page-link {
-  margin-left: 0;
-  border-bottom-left-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
+.ac-pagination li {
+    margin: 0 2px;
 }
 
-.page-item:last-child .page-link {
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-
-.page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover {
-  z-index: 2;
-  color: #fff;
-  cursor: default;
-  background-color: #0275d8;
-  border-color: #0275d8;
-}
-
-.page-item.disabled .page-link, .page-item.disabled .page-link:focus, .page-item.disabled .page-link:hover {
-  color: #818a91;
-  pointer-events: none;
-  cursor: not-allowed;
-  background-color: #fff;
-  border-color: #ddd;
-}
-
-.page-link {
-  position: relative;
-  float: left;
-  padding: 0.5rem 0.75rem;
-  margin-left: -1px;
-  color: #0275d8;
-  text-decoration: none;
-  background-color: #fff;
-  border: 1px solid #ddd;
-}
-
-.page-link:focus, .page-link:hover {
-  color: #014c8c;
-  background-color: #eceeef;
-  border-color: #ddd;
+.ac-pagination a {
+    display: block;
+    min-width: 32px;
+    padding: 3px 8px;
 }
 /**
  * yue.css

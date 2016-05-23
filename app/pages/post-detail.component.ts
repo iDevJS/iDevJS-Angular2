@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core'
+import {Title} from '@angular/platform-browser'
 import {OnActivate, RouteSegment} from '@angular/router'
 import {PostDetailComponent} from '../post/post-detail.component'
 import {PostCommentComponent} from '../comment/post-comment.component'
@@ -14,7 +15,7 @@ export class PostPageComponent implements OnActivate, OnInit {
     public post
     public comments
     private _pid: string
-    constructor(private _client: Client) {
+    constructor(private _client: Client, private titleService: Title) {
 
     }
     routerOnActivate(curr: RouteSegment) {
@@ -26,7 +27,10 @@ export class PostPageComponent implements OnActivate, OnInit {
     getPost() {
         this._client.getPost(this._pid)
             .subscribe(
-            res => this.post = res,
+            res => {
+                this.post = res
+                this.titleService.setTitle(res.title)
+            },
             err => alert(err),
             () => console.log('get post')
             )

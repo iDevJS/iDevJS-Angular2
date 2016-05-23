@@ -2,12 +2,12 @@
     <div class="post-header-left">
         <ol class="breadcrumb">
                 <li><a [routerLink]="['/']">iDevJS</a></li>
-                <li><a [routerLink]="['/node', {name: post.node.name}]">{{post.node.alias}}</a></li>
+                <li><a [routerLink]="['/node', post.node.name]">{{post.node.alias}}</a></li>
                 <li><a href="">{{post.tab}}</a></li>
             </ol>
         <h1 class="post-title">{{post.title}}</h1>
         <ul class="post-metadata">
-            <li><a [routerLink]="['/u', {id: post.author._id}]">{{post.author.name}}</a></li>
+            <li><a [routerLink]="['/u', post.author._id]">{{post.author.name}}</a></li>
             <li><time>{{post.created_at | date: 'medium'}}</time></li>
             <li>{{post.views_count}}次查看</li>
         </ul>

@@ -1,9 +1,9 @@
 <div class="container">
     <section class="content">
         <div class="post-list block-card">
-            <ngc-tab-header [tabList]="tabList" (tabChange)="setTab($event)" ></ngc-tab-header>
+            <ngc-tab-header [tabList]="tabList" (tabChange)="setTab($event)" [selectedIndex]="0" ></ngc-tab-header>
             <post-item *ngIf="posts" *ngFor="let post of posts" [post]="post"></post-item>
-            <ngb-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" (pageChange)="setPage($event)"></ngb-pagination>
+            <ac-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" (pageChange)="setPage($event)"></ac-pagination>
         </div>
     </section>
     <section class="aside">

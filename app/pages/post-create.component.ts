@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core'
-import {ROUTER_DIRECTIVES} from '@angular/router'
+import {OnActivate, RouteSegment, ROUTER_DIRECTIVES} from '@angular/router'
 import {PostEditorComponent} from '../post/post-editor.component'
 import {Client} from 'idevjs-angular-client'
 import {IPost} from '../post/post'
@@ -10,7 +10,7 @@ import {IPost} from '../post/post'
     directives: [PostEditorComponent, ROUTER_DIRECTIVES]
 })
 
-export class PostCreatePageComponent implements OnInit {
+export class PostCreatePageComponent implements OnActivate, OnInit {
     public post: any
     constructor(private _client: Client) {
         this.post = {
@@ -22,6 +22,9 @@ export class PostCreatePageComponent implements OnInit {
             },
             tab: ''
         }
+    }
+    routerOnActivate(curr: RouteSegment) {
+        this.post.node.name = curr.getParam('node') || ''
     }
     ngOnInit() {
 

@@ -20,15 +20,16 @@ export class HomeComponent implements OnActivate, OnInit {
     public collectionSize: number = 0
     public pageSize: number = 10
     public tabList = [
-        { "alias": "全部", "name": "" },
-        { "alias": "热门", "name": "hot" },
-        { "alias": "最新", "name": "new" },
-        { "alias": "精华", "name": "recommend" },
-        { "alias": "招聘", "name": "job" },
-        { "alias": "AngularJS", "name": "angular" },
-        { "alias": "ReactJS", "name": "react" },
-        { "alias": "VueJS", "name": "vue" }
+        { "alias": "全部", "name": "", "type": "tab" },
+        { "alias": "热门", "name": "hot", "type": "tab" },
+        { "alias": "最新", "name": "new", "type": "tab" },
+        { "alias": "精华", "name": "recommend", "type": "tab" },
+        { "alias": "招聘", "name": "job", "type": "tab" },
+        { "alias": "AngularJS", "name": "angular", "type": "node" },
+        { "alias": "ReactJS", "name": "react", "type": "node" },
+        { "alias": "VueJS", "name": "vue", "type": "node" }
     ]
+    private selectedTab = this.tabList[0]
     constructor(private _client: Client, private router: Router) {
 
     }
@@ -39,22 +40,41 @@ export class HomeComponent implements OnActivate, OnInit {
         this.setPage(1)
     }
     setTab(tab) {
-        console.log(tab, this.curSegment)
-        this.router.navigate(['/', { tab: tab.name }])
+        this.selectedTab = tab
+        this.setPage(1)
+        // this.router.navigate(['/', { tab: tab.name }])
     }
     setPage(pageNo: number) {
         let startNo: number = this.pageSize * (pageNo - 1 || 0)
         this.getPosts(startNo, this.pageSize)
     }
     getPosts(start?, count?) {
-        this._client.getPostList(start || 0, count || 10)
-            .subscribe(
-            res => {
-                this.posts = res.posts
-                this.collectionSize = res.total
-            },
-            err => alert(err),
-            () => console.log('completed')
-            )
+        if (this.selectedTab.type === 'tab') {
+            this._client.getPostList({
+                start: start || 0,
+                count: count || 10,
+                tab: this.selectedTab.name
+            }).subscribe(
+                res => {
+                    this.posts = res.posts
+                    this.collectionSize = res.total
+                },
+                err => alert(err),
+                () => console.log('completed')
+                )
+        } else {
+            this._client.getNodePostList(this.selectedTab.name, {
+                start: start || 0,
+                count: count || 10
+            }).subscribe(
+                res => {
+                    this.posts = res.posts
+                    this.collectionSize = res.total
+                },
+                err => alert(err),
+                () => console.log('completed')
+                )
+        }
+
     }
 }

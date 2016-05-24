@@ -157,14 +157,21 @@ a{
     /**/
 }
 
-user-post-item .post-item-title{
+.user-post-item .stream-item-content{
+  padding-top: 0;
+}
+
+.user-post-item .post-item-title{
     margin-top: 0;
 }
 
 .user-comment-item .stream-item-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: -9px -12px 0;
   padding: 9px 12px;
-  background: #ffe;
+  background: rgb(251, 248, 238);
   box-shadow: 0 0 3px 3px rgba(255, 247, 133, 0.1) inset;
 }
 
@@ -243,6 +250,8 @@ idevjs-nav{
   display: flex;
   padding: 10px;
   border-bottom: 1px solid #E1E8ED;
+  width: 100%;
+  overflow: auto;
 }
 
 .ac-tab-header ul{
@@ -267,6 +276,7 @@ idevjs-nav{
   padding: 2px 12px;
   cursor: pointer;
   border-radius: 3px;
+  white-space: nowrap;
 }
 .ac-tab-header a:hover{
   background: rgba(0,0,0,0.05);

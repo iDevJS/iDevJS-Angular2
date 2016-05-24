@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
 import {ROUTER_DIRECTIVES} from '@angular/router'
-import {Client} from 'idevjs-angular-client'
 import {PostEditorComponent} from '../post/post-editor.component'
+import {Client} from 'idevjs-angular-client'
 import {IPost} from '../post/post'
 
 @Component({
@@ -27,7 +27,6 @@ export class PostCreatePageComponent implements OnInit {
 
     }
     onSubmitPost(post) {
-        console.log(post)
         let data = {
             title: post.title,
             content: post.content,
@@ -35,6 +34,7 @@ export class PostCreatePageComponent implements OnInit {
             tab: post.tab,
             content_format: 'markdown'
         }
+        console.log(data)
         this._client.addPost(data)
             .subscribe(
             res => this.post = res,

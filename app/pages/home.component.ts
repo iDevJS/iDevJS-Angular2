@@ -3,14 +3,13 @@ import {Router, RouteSegment, OnActivate, ROUTER_DIRECTIVES} from '@angular/rout
 import {AcPagination} from '../utils/pagination'
 import {NgcTabHeader} from '../utils/tab-header'
 import {PostItemComponent} from '../post/post-item.component'
-import {NavComponent} from '../header/nav.component'
 import {Client} from 'idevjs-angular-client'
 
 @Component({
     selector: 'home-page',
     templateUrl: 'app/pages/home.component.html',
     styleUrls: ['app/pages/home.component.css'],
-    directives: [AcPagination, NgcTabHeader, PostItemComponent, NavComponent, ROUTER_DIRECTIVES],
+    directives: [AcPagination, NgcTabHeader, PostItemComponent, ROUTER_DIRECTIVES],
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -75,6 +74,5 @@ export class HomeComponent implements OnActivate, OnInit {
                 () => console.log('completed')
                 )
         }
-
     }
 }

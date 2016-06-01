@@ -1,17 +1,18 @@
 import {Component, OnInit} from '@angular/core'
 import {OnActivate, RouteSegment, ROUTER_DIRECTIVES} from '@angular/router'
-import {UserPostItemComponent} from '../post/user-post-item.component'
+import {AcPagination} from '../utils/pagination'
 import {UserCommentItemComponent} from '../comment/user-comment-item.component'
 import {Client} from 'idevjs-angular-client'
 
 @Component({
-    templateUrl: 'app/pages/account.component.html',
-    directives: [UserPostItemComponent, UserCommentItemComponent, ROUTER_DIRECTIVES]
+    templateUrl: 'app/pages/user-comment.component.html',
+    directives: [ROUTER_DIRECTIVES, UserCommentItemComponent, AcPagination]
 })
 
-export class AccountPageComponent implements OnActivate, OnInit {
-    public posts
+export class UserCommentPageComponent implements OnActivate, OnInit {
     public comments
+    public collectionSize: number = 0
+    public pageSize: number = 10
     private _name: string
 
     constructor(private _client: Client) {
@@ -21,24 +22,16 @@ export class AccountPageComponent implements OnActivate, OnInit {
         this._name = curr.getParam('name')
     }
     ngOnInit() {
-        this.getPosts()
-        this.getComments()
+        this.setPage(1)
     }
-    getPosts() {
-        this._client.getUserPostList(this._name, {
-            start: 0,
-            count: 10
-        })
-            .subscribe(
-            res => this.posts = res.posts,
-            err => alert(err),
-            () => console.log('get posts')
-            )
+    setPage(pageNo: number) {
+        let startNo: number = this.pageSize * (pageNo - 1 || 0)
+        this.getComments(startNo, this.pageSize)
     }
-    getComments() {
+    getComments(start = 0, count = 10) {
         this._client.getUserCommentList(this._name, {
-            start: 0,
-            count: 10
+            start: start,
+            count: count
         }).subscribe(
             res => this.comments = res.comments.map((item) => { item.content.replace(/\n/g, '<br>'); return item }),
             err => alert(err),

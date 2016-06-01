@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core'
 import {OnActivate, RouteSegment, ROUTER_DIRECTIVES} from '@angular/router'
 import {Client} from 'idevjs-angular-client'
-import {PostPageComponent} from './post-detail.component'
 import {PostEditorComponent} from '../post/post-editor.component'
 
 @Component({
@@ -23,15 +22,16 @@ export class PostEditPageComponent implements OnActivate, OnInit {
         this.getPost()
     }
     getPost() {
-        this._client.getPostRaw(this._pid)
-            .subscribe(
+        this._client.getPost(this._pid, {
+            content_format: 'markdown'
+        }).subscribe(
             res => this.post = res,
             err => alert(err),
             () => console.log('get post')
             )
     }
     onSubmitPost(post) {
-        var data = {
+        let data = {
             title: post.title,
             content: post.content,
             node: post.node.name,

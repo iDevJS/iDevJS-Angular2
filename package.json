@@ -27,7 +27,7 @@
     "core-js": "^2.2.2",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.35.0",
-    "idevjs-angular-client": "0.0.9",
+    "idevjs-angular-client": "^0.0.10",
     "lite-server": "^2.2.0",
     "material-design-icons": "^2.2.0",
     "ng2-timeago": "^1.0.0",

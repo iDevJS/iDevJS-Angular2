@@ -5,6 +5,8 @@ import {HomeComponent} from './pages/home.component'
 import {NodePostComponent} from './pages/node-post.component'
 import {LoginComponent} from './pages/login.component'
 import {AccountPageComponent} from './pages/account.component'
+import {UserPostPageComponent} from './pages/user-post.component'
+import {UserCommentPageComponent} from './pages/user-comment.component'
 import {PostPageComponent} from './pages/post-detail.component'
 import {PostCreatePageComponent} from './pages/post-create.component'
 import {PostEditPageComponent} from './pages/post-edit.component'
@@ -24,11 +26,12 @@ import {OAuthCallbackComponent} from './pages/oauth-callback.component'
     // {path: '/explore',  component: PostListComponent},
     { path: '/node/:name', component: NodePostComponent },
     { path: '/post/new', component: PostCreatePageComponent },
-    { path: '/post/:id', component: PostPageComponent },
     { path: '/post/:id/edit', component: PostEditPageComponent },
-    { path: '/u/:id', component: AccountPageComponent },
+    { path: '/post/:id', component: PostPageComponent },
+    { path: '/u/:name/post', component: UserPostPageComponent},
+    { path: '/u/:name/comment', component: UserCommentPageComponent},
+    { path: '/u/:name', component: AccountPageComponent },
     { path: '/oauth/callback/:name', component: OAuthCallbackComponent }
-    // {path: '/u/:name',  Page', component: AccountPageComponent}
 ])
 
 export class AppComponent {

@@ -1,0 +1,15 @@
+<div class="container">
+    <section class="content">
+        <div class="post-list block-card">
+            <div class="page-nav">
+                <ul class="breadcrumb">
+                    <li><a href="/">iDevJS</a></li>
+                    <li><a [routerLink]="['/u', _name]">{{_name}}</a></li>
+                    <li>全部回复</li>
+                </ul>
+            </div>
+            <user-comment-item *ngIf="comments" *ngFor="let comment of comments" [comment]="comment"></user-comment-item>
+            <ac-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" (pageChange)="setPage($event)"></ac-pagination>
+        </div>
+    </section>
+</div>

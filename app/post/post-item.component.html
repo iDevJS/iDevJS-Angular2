@@ -2,7 +2,7 @@
     <img class="stream-item-avatar avatar" src="{{post.author.gravatar}}" alt="">
     <div layout-align="space-between" class="stream-item-body">
         <div class="stream-item-header">
-            <a class="fullname" [routerLink]="['/u',post.author._id]">{{post.author.name}}</a>
+            <a class="fullname" [routerLink]="['/u',post.author.name]">{{post.author.name}}</a>
             <span class="metadata">
                 <a class="node" [routerLink]="['/node', post.node.name]" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
                 <small class="time"><time-ago [time]="post.created_at" [sufix]="'ago'" [afterMaxDateFormat]="'yMMdd'" [interval]="10000"></time-ago></small>

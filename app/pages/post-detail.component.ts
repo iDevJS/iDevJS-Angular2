@@ -25,7 +25,7 @@ export class PostPageComponent implements OnActivate, OnInit {
         this.getPost()
     }
     getPost() {
-        this._client.getPost(this._pid)
+        this._client.getPost(this._pid,{})
             .subscribe(
             res => {
                 this.post = res
@@ -36,7 +36,7 @@ export class PostPageComponent implements OnActivate, OnInit {
             )
     }
     getComment() {
-        this._client.getPostCommentList(this._pid)
+        this._client.getPostCommentList(this._pid,{})
             .subscribe(
             res => this.comments = res.comments,
             err => alert(err),

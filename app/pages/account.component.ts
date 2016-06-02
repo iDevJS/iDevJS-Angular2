@@ -10,6 +10,7 @@ import {Client} from 'idevjs-angular-client'
 })
 
 export class AccountPageComponent implements OnActivate, OnInit {
+    public user
     public posts
     public comments
     private _name: string
@@ -21,8 +22,16 @@ export class AccountPageComponent implements OnActivate, OnInit {
         this._name = curr.getParam('name')
     }
     ngOnInit() {
+        this.getUser()
         this.getPosts()
         this.getComments()
+    }
+    getUser() {
+        this._client.getUser(this._name).subscribe(
+            res => this.user = res,
+            err => alert(err),
+            () => { console.log('get user') }
+        )
     }
     getPosts() {
         this._client.getUserPostList(this._name, {

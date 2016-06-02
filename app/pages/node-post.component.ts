@@ -4,17 +4,25 @@ import {Client} from 'idevjs-angular-client'
 import {AcPagination} from '../utils/pagination'
 import {NgcTabHeader} from '../utils/tab-header'
 import {PostItemComponent} from '../post/post-item.component'
-import {NavComponent} from '../header/nav.component'
+
+interface ITab {
+    name: string,
+    alias: string,
+    type: string
+}
 
 @Component({
     selector: 'home-page',
     templateUrl: 'app/pages/node-post.component.html',
-    directives: [NavComponent, NgcTabHeader, PostItemComponent,  ROUTER_DIRECTIVES]
+    directives: [NgcTabHeader, AcPagination, PostItemComponent, ROUTER_DIRECTIVES]
 })
 
 export class NodePostComponent implements OnActivate, OnInit {
     public node: any
+    public tabIndex: number = 0
     private nodeName: string
+    private _tab: string
+    private selectedTab: ITab
     private curSegment: RouteSegment
     public posts: any[] = []
     public collectionSize: number = 0
@@ -24,21 +32,20 @@ export class NodePostComponent implements OnActivate, OnInit {
         { "alias": "热门", "name": "hot", "type": "tab" },
         { "alias": "精华", "name": "recommend", "type": "tab" }
     ]
-    private selectedTab = this.tabList[0]
     constructor(private _client: Client, private router: Router) {
 
     }
     routerOnActivate(curr: RouteSegment) {
         this.nodeName = curr.getParam('name')
+        this._tab = curr.getParam('tab')
+        this.getNode()
     }
     ngOnInit() {
-        this.setPage(1)
-        this.getNode()
+
     }
     setTab(tab) {
         this.selectedTab = tab
         this.setPage(1)
-        // this.router.navigate(['/', { tab: tab.name }])
     }
     setPage(pageNo: number) {
         let startNo: number = this.pageSize * (pageNo - 1 || 0)
@@ -65,6 +72,17 @@ export class NodePostComponent implements OnActivate, OnInit {
             res => {
                 this.node = res
                 this.tabList = this.tabList.concat(res.tabs)
+                if (this._tab) {
+                    this.tabList.forEach((item, i) => {
+                        if (item.name === this._tab) {
+                            this.selectedTab = item
+                            this.tabIndex = i
+                        }
+                    })
+                }else{
+                    this.selectedTab = this.tabList[0]
+                }
+                this.setPage(1)
             }
             )
     }

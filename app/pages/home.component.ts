@@ -26,7 +26,8 @@ export class HomeComponent implements OnActivate, OnInit {
         { "alias": "招聘", "name": "job", "type": "tab" },
         { "alias": "AngularJS", "name": "angular", "type": "node" },
         { "alias": "ReactJS", "name": "react", "type": "node" },
-        { "alias": "VueJS", "name": "vue", "type": "node" }
+        { "alias": "VueJS", "name": "vue", "type": "node" },
+        { "alias": "NodeJS", "name": "node", "type": "node"}
     ]
     private selectedTab = this.tabList[0]
     constructor(private _client: Client, private router: Router) {

@@ -294,8 +294,11 @@ idevjs-nav{
 }
 
 ac-pagination{
-  padding:10px;
+  display: flex;
+  padding:0 10px;
+  justify-content: flex-end;
 }
+
 /*angular component pagination*/
 .ac-pagination {
   align-items: center;
@@ -303,22 +306,30 @@ ac-pagination{
   justify-content: center;
   text-align: center;
 }
-
-.ac-pagination ul{
+.pagination ul{
   align-items: center;
   display: flex;
   flex: 1;
   justify-content: center;
 }
-
-.ac-pagination li {
+.pagination li {
     margin: 0 2px;
+    list-style: none;
+    cursor: pointer;
 }
-
-.ac-pagination a {
+.pagination li.active,
+.pagination li.disabled{
+  cursor: auto;
+}
+.pagination a {
     display: block;
     min-width: 32px;
     padding: 3px 8px;
+    background: #ffb400;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    
 }
 /**
  * yue.css

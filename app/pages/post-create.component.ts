@@ -37,7 +37,7 @@ export class PostCreatePageComponent implements OnActivate, OnInit {
             tab: post.tab,
             content_format: 'markdown'
         }
-        console.log(data)
+        
         this._client.addPost(data)
             .subscribe(
             res => this.post = res,

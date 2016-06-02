@@ -19,6 +19,7 @@ export class PostDetailComponent implements OnActivate {
     }
     routerOnActivate(curr: RouteSegment) {
         this._pid = curr.getParam('id')
+        console.log(this._pid)
     }
     like() {
 

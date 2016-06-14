@@ -1,7 +1,7 @@
 <div class="container">
     <section class="content">
         <div class="post-list block-card">
-            <ngc-tab-header [tabList]="tabList" (tabChange)="setTab($event)" [selectedIndex]="tabIndex"></ngc-tab-header>
+            <ac-tab-header [tabList]="tabList" (tabChange)="setTab($event)" [selectedIndex]="tabIndex"></ac-tab-header>
             <post-item *ngIf="posts" *ngFor="let post of posts" [post]="post"></post-item>
             <ac-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" (pageChange)="setPage($event)"></ac-pagination>
         </div>

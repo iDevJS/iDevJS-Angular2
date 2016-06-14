@@ -1,20 +1,17 @@
-<div class="comment-item user-comment-item stream-item" *ngIf="comment">
-    <div class="stream-item-body">
-        <div class="stream-item-header">
+<div class="comment-item user-comment-item stream" *ngIf="comment">
+    <div class="stream-body">
+        <div class="stream-header user-comment-header">
             <span>
                 回复了 
-                <a class="stream-item-author-link" [routerLink]="['/u', comment.author._id]" attr.data-user-id="{{comment.post.author._id}}"> 
+                <a class="stream-author-link" [routerLink]="['/u', comment.author._id]" attr.data-user-id="{{comment.post.author._id}}"> 
                     <strong class="fullname comment-profile-fullname">{{comment.post.author.name}}</strong>
                 </a>
                  创建的主题：
                 <a [routerLink]="['/post', comment.post._id]" >{{comment.post.title}}</a>
             </span>
-            <small class="time">{{comment.created_at | date: 'MM/dd'}}</small>
+            <small class="time metadata">{{comment.created_at | date: 'MM/dd'}}</small>
         </div>
-        <div class="stream-item-content" [innerHtml]="comment.content" ></div>
-        <div class="stream-item-footer">
-            
-        </div>
+        <div class="stream-content" [innerHtml]="comment.content" ></div>
     </div>
     
 </div>

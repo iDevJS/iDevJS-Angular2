@@ -1,29 +1,27 @@
-<article class="post-item stream-item" *ngIf="post">
-    <img class="stream-item-avatar avatar" src="{{post.author.gravatar}}" alt="">
-    <div layout-align="space-between" class="stream-item-body">
-        <div class="stream-item-header">
-            <a class="fullname" [routerLink]="['/u',post.author.name]">{{post.author.name}}</a>
-            <span class="metadata">
-                <a class="node" [routerLink]="['/node', post.node.name]" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
-                <small class="time"><time-ago [time]="post.created_at" [sufix]="'ago'" [afterMaxDateFormat]="'yMMdd'" [interval]="10000"></time-ago></small>
-            </span>
+<article class="post-item stream" *ngIf="post">
+    <img class="stream-left avatar" src="{{post.author.gravatar}}" alt="">
+    <div layout-align="space-between" class="stream-body">
+        <div class="stream-header">
+            <a class="fullname" [routerLink]="['/u',post.author.name]"><strong>{{post.author.name}}</strong></a>
+            <a class="node" [routerLink]="['/node', post.node.name]" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
+            <small class="time metadata"><time-ago [time]="post.created_at" [sufix]="'ago'" [afterMaxDateFormat]="'yMMdd'" [interval]="10000"></time-ago></small>
         </div>
-        <div class="stream-item-content">
-            <h2 class="post-item-title"><a [routerLink]="['/post', post._id]">{{post.title}}</a></h2>
+        <div class="stream-content">
+            <h2 class="title"><a [routerLink]="['/post', post._id]">{{post.title}}</a></h2>
             <!--<div class="post-item-body yue" [innerHTML]="post.content"></div>-->
         </div>
-        <div class="stream-item-footer">
-            <span class="like-count metadata">
+        <div class="stream-footer">
+            <small class="like-count metadata">
                 <i class="material-icons icon-fav" (click)="like(post)">favorite_border</i>
                 {{post.likes_count}} 人喜欢
-            </span>
-            <span class="comment-count metadata">
+            </small>
+            <small class="comment-count metadata">
                 <!--<i class="material-icons">chat_bubble_outline</i>-->
                 <i class="material-icons">bookmark_border</i>
-                {{post.views_count}} 次查看</span>
-            <span *ngIf="post.last_comment_user" class="last-comment-by metadata">
+                {{post.views_count}} 次查看</small>
+            <small *ngIf="post.last_comment_user" class="last-comment-by metadata">
                 最后回复来自 <a href="" attr.data-user-id="post.last_comment_user._id">{{post.last_comment_user.name}}</a>
-            </span>
+            </small>
         </div>
     </div>
 </article>

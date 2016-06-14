@@ -1,22 +1,21 @@
-<div class="comment-item stream-item" *ngIf="comment">
-    <img src="{{comment.author.gravatar}}" alt="" class="stream-item-avatar avatar">
-    <div class="stream-item-body">
-        <div class="stream-item-header">
-            <a class="stream-item-author-link" [routerLink]="['/u', comment.author.name]" attr.data-user-id="{{comment.author._id}}">
-                <strong class="fullname comment-profile-fullname">{{comment.author.name}}</strong>
-                <span class="username comment-profile-username">
+<div class="comment-item stream" *ngIf="comment">
+    <img src="{{comment.author.gravatar}}" alt="" class="stream-left avatar">
+    <div class="stream-body">
+        <div class="stream-header">
+            <a class="" [routerLink]="['/u', comment.author.name]" attr.data-user-id="{{comment.author._id}}">
+                <strong class="fullname">{{comment.author.name}}</strong>
+                <!-- <span class="username comment-profile-username">
                     @{{comment.author.name}}
-                </span>
+                </span> -->
             </a>
-            <small class="time">{{comment.created_at | date: 'MM/dd'}}</small>
+            <small class="time metadata">{{comment.created_at | date: 'MM/dd'}}</small>
             <i (click)="reply(comment)" class="material-icons icon-reply">reply</i>
-            <span >
+            <small class="like-count metadata">
                 <i class="material-icons icon-fav" (click)="like(comment)">favorite</i>
-                <small class="like-count">{{comment.likes_count}}</small>
-            </span>
+                {{comment.likes_count}}
+            </small>
         </div>
-        <div class="stream-item-content" [innerHTML]="comment.content"></div>
-        <div class="stream-item-footer"></div>
+        <div class="stream-content" [innerHTML]="comment.content"></div>
+        <div class="stream-footer"></div>
     </div>
-    
 </div>

@@ -22,8 +22,6 @@ import {OAuthCallbackComponent} from './pages/oauth-callback.component'
 @Routes([
     { path: '/', component: HomeComponent },
     { path: '/login', component: LoginComponent },
-    // {path: '/signup',  component: SignupComponent},
-    // {path: '/explore',  component: PostListComponent},
     { path: '/node/:name', component: NodePostComponent },
     { path: '/post/new', component: PostCreatePageComponent },
     { path: '/post/:id/edit', component: PostEditPageComponent },

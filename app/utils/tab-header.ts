@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, Output, OnChanges, ChangeDetectionStrategy} from '@angular/core'
 
 @Component({
-    selector: 'ngc-tab-header',
+    selector: 'ac-tab-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-        <nav class="ac-tab-header">
+        <nav class="tab-header">
             <ul>
                 <li *ngFor="let tab of tabList; let i=index" class="tab-item" [class.is-active]="selectedIndex === i">
                     <a class="tab-link" (click)="selectTab(tab,i)">{{tab.alias}}</a>

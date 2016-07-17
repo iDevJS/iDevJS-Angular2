@@ -1,0 +1,23 @@
+<div class="container">
+    <section class="content">
+        <div class="post-list block-card">
+            <ac-tab-header [tabList]="tabList" (tabChange)="setTab($event)" [selectedIndex]="tabIndex"></ac-tab-header>
+            <post-item *ngFor="let post of posts" [post]="post"></post-item>
+            <ac-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" (pageChange)="setPage($event)"></ac-pagination>
+        </div>
+    </section>
+    <section class="aside">
+        <div class="side-card block-card">
+            <div class="side-card-body">
+                <a class="btn btn-block btn-primary" [routerLink]="['/post/new', {node: nodeName}]">新建话题</a>
+            </div>
+        </div>
+        <div class="side-card block-card">
+            <div class="side-card-title"></div>
+            <div class="side-card-body">
+                <img src="http://cdn.v2ex.co/friends/wilddog/wilddog_20160511_big.jpg" alt="">
+            </div>
+            <div class="side-card-footer"></div>
+        </div>
+    </section>
+</div>

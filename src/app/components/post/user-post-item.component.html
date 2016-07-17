@@ -1,0 +1,24 @@
+<article class="post-item user-post-item stream" *ngIf="post">
+    <div class="stream-left post-data">
+        <div class="post-data-item">
+            <i class="material-icons icon-fav" (click)="like(post)">favorite_border</i>
+            {{post.likes_count}}
+        </div>
+        <div class="post-data-item">
+            <i class="material-icons">chat_bubble_outline</i>
+            {{post.comments_count}}
+        </div>
+    </div>
+    <div class="stream-body">
+        <div class="stream-content">
+            <h2 class="title"><a [routerLink]="['/post', post._id]">{{post.title}}</a></h2>
+        </div>
+        <div class="stream-footer">
+            <a class="node" [routerLink]="['/node', post.node.name]" attr.data-node-id="{{post.node._id}}">{{post.node.alias}}</a>
+            <small class="time metadata"><time-ago [time]="post.created_at" [sufix]="'ago'" [afterMaxDateFormat]="'yMMdd'" [interval]="10000"></time-ago></small>
+            <small *ngIf="post.last_comment_user" class="last-comment-by metadata">
+                最后回复来自 <a [routerLink]="['/u', post.last_comment_user.name]" attr.data-user-id="post.last_comment_user.name">{{post.last_comment_user.name}}</a>
+            </small>
+        </div>
+    </div>
+</article>

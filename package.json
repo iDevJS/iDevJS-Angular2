@@ -1,5 +1,5 @@
 {
-  "name": "iDevJS-Angular2",
+  "name": "idevjs-angular2",
   "version": "1.0.0",
   "scripts": {
     "tsc": "tsc",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iDevJS/iDevJS-Angular2.git"
+    "url": "git+https://github.com/idevjs/idevjs-angular2.git"
   },
   "license": "MIT",
   "dependencies": {

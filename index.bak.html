@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+
+<head>
+    <base href="/">
+    <title>iDevJS with Angular 2 </title>
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/typescript/lib/typescript.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    
+    <!-- 2. Configure SystemJS -->
+    <script src="system.config.js"></script>
+    <script>
+        System.import('app/boot').then(null, console.error.bind(console));
+    </script>
+    
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <!--<link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/solarized-dark.css">-->
+    <!--https://highlightjs.org/static/demo/styles/monokai-sublime.css-->
+    <!--https://highlightjs.org/static/demo/styles/railscasts.css-->
+    <!--<link rel="stylesheet" href="node_modules/idevjs-style/dist/app.css">-->
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<!-- 3. Display the application -->
+
+<body>
+    <idevjs-app>Loading...</idevjs-app>
+    <!--<script src="https://highlightjs.org/static/highlight.pack.js"></script>-->
+    <!--<script>
+        hljs.initHighlightingOnLoad();
+    </script>-->
+</body>
+
+</html>

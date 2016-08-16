@@ -23,7 +23,7 @@ export class PostCommentComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private _client: Client
+        private client: Client
     ) { }
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
@@ -35,7 +35,7 @@ export class PostCommentComponent implements OnInit, OnDestroy {
         this.sub.unsubscribe()
     }
     getComments() {
-        this._client.getPostCommentList(this._pid)
+        this.client.getPostCommentList(this._pid)
             .subscribe(
             res => this.comments = res.comments,
             err => alert(err),
@@ -49,7 +49,7 @@ export class PostCommentComponent implements OnInit, OnDestroy {
         console.log(id)
     }
     onAddComment(value) {
-        this._client.addPostComment(this._pid, value)
+        this.client.addPostComment(this._pid, value)
             .subscribe(
             res => { this.comments.push(res); this.content = '' },
             err => alert(err),

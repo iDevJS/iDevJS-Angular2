@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
         { "alias": "NodeJS", "name": "node", "type": "node"}
     ]
     private selectedTab = this.tabList[0]
-    constructor(private _client: Client, private router: Router) {
+    constructor(private client: Client, private router: Router) {
 
     }
     ngOnInit() {
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     }
     getPosts(start?, count?) {
         if (this.selectedTab.type === 'tab') {
-            this._client.getPostList({
+            this.client.getPostList({
                 start: start || 0,
                 count: count || 10,
                 tab: this.selectedTab.name
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
                 () => console.log('completed')
                 )
         } else {
-            this._client.getNodePostList(this.selectedTab.name, {
+            this.client.getNodePostList(this.selectedTab.name, {
                 start: start || 0,
                 count: count || 10
             }).subscribe(

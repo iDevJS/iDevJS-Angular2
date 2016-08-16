@@ -19,7 +19,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private _client: Client
+        private client: Client
     ) { }
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
@@ -33,14 +33,14 @@ export class AccountPageComponent implements OnInit, OnDestroy {
         this.sub.unsubscribe()
     }
     getUser() {
-        this._client.getUser(this._name).subscribe(
+        this.client.getUser(this._name).subscribe(
             res => this.user = res,
             err => alert(err),
             () => { console.log('get user') }
         )
     }
     getPosts() {
-        this._client.getUserPostList(this._name, {
+        this.client.getUserPostList(this._name, {
             start: 0,
             count: 10
         })
@@ -51,7 +51,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
             )
     }
     getComments() {
-        this._client.getUserCommentList(this._name, {
+        this.client.getUserCommentList(this._name, {
             start: 0,
             count: 10
         }).subscribe(

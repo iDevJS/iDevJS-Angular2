@@ -37,7 +37,7 @@ export class NodePostComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private _client: Client
+        private client: Client
     ) { }
     ngOnInit() {
         // this.query = this.router.routerState.queryParams.subscribe(params => {})
@@ -61,7 +61,7 @@ export class NodePostComponent implements OnInit, OnDestroy {
         this.getPosts(startNo, this.pageSize)
     }
     getPosts(start?, count?) {
-        this._client.getNodePostList(this.nodeName, {
+        this.client.getNodePostList(this.nodeName, {
             start: start || 0,
             count: count || 10,
             tab: this.selectedTab.name
@@ -76,7 +76,7 @@ export class NodePostComponent implements OnInit, OnDestroy {
 
     }
     getNode() {
-        this._client.getNode(this.nodeName)
+        this.client.getNode(this.nodeName)
             .subscribe(
             res => {
                 this.node = res

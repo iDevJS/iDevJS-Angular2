@@ -16,12 +16,17 @@
             <a href="">节点</a>
         </div>
     </div>
-    <div class="navbar-right">
+    <div class="navbar-right" *ngIf="!isLoggedIn">
         <div class="navbar-item">
             <a href="https://api.idevjs.com/auth/github">登录</a>
         </div>
         <div class="navbar-item">
             <a href="https://api.idevjs.com/auth/github">注册</a>
         </div>
+    </div>
+    <div class="navbar-right" *ngIf="isLoggedIn">
+      <div class="navbar-item" *ngIf="!!user">
+        <a [routerLink]="['/u', user.name]">{{user.name}}</a>
+      </div>
     </div>
 </nav>

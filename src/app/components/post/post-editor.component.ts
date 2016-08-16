@@ -18,7 +18,7 @@ export class PostEditorComponent implements OnInit {
     tabList: Array<any>
     submitPost: EventEmitter<Object> = new EventEmitter()
 
-    constructor(private _client: Client) {
+    constructor(private client: Client) {
 
     }
 
@@ -33,7 +33,7 @@ export class PostEditorComponent implements OnInit {
     }
 
     getNodeList() {
-        this._client.getNodeList()
+        this.client.getNodeList()
             .subscribe(
             res => {
                 this.nodeList = res

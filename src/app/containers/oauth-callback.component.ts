@@ -18,6 +18,6 @@ export class OAuthCallbackComponent implements OnInit, OnDestroy {
         })
     }
     ngOnDestroy() {
-        this.sub.unSubscribe()
+        this.sub.unsubscribe()
     }
 }

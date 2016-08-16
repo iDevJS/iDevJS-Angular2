@@ -4,8 +4,11 @@ import {Title} from '@angular/platform-browser'
 import 'rxjs/add/operator/map'
 import {HTTP_PROVIDERS, Http} from '@angular/http'
 import {AppComponent} from './app/app.component'
-import {APP_ROUTER_PROVIDERS} from './app/app.routes'
+import {appRouterProviders} from './app/app.routes'
+import {AuthService} from './app/auth.service'
+import {AuthGuard} from './app/auth.guard'
 import {Client, AuthConfig} from 'idevjs-angular-client'
+require('../app.css')
 
 if (process.env.ENV === 'production') {
     enableProdMode()
@@ -13,8 +16,10 @@ if (process.env.ENV === 'production') {
 
 bootstrap(AppComponent, [
     HTTP_PROVIDERS,
-    APP_ROUTER_PROVIDERS,
+    appRouterProviders,
     Title,
+    AuthService,
+    AuthGuard,
     provide(Client, {
         useFactory: (http) => {
             return new Client(new AuthConfig({

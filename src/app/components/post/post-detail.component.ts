@@ -15,7 +15,7 @@ export class PostDetailComponent implements OnInit {
     public post: IPost
     private sub: any
     private _pid: string
-    constructor(private _client: Client) {
+    constructor(private client: Client) {
 
     }
     ngOnInit() {

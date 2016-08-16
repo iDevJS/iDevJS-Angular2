@@ -19,7 +19,7 @@ export class UserPostPageComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private _client: Client
+        private client: Client
     ) { }
 
     ngOnInit() {
@@ -36,7 +36,7 @@ export class UserPostPageComponent implements OnInit, OnDestroy {
         this.getPosts(startNo, this.pageSize)
     }
     getPosts(start = 0, count = 10) {
-        this._client.getUserPostList(this.name, {
+        this.client.getUserPostList(this.name, {
             start: start,
             count: count
         }).subscribe(

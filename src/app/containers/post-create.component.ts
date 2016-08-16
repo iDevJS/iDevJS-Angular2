@@ -13,7 +13,7 @@ import {IPost} from '../components/post/post'
 export class PostCreatePageComponent implements OnInit, OnDestroy {
     public post: any
     private sub: any
-    constructor(private route: ActivatedRoute, private _client: Client) {
+    constructor(private route: ActivatedRoute, private client: Client) {
         this.post = {
             title: '',
             content: '',
@@ -41,7 +41,7 @@ export class PostCreatePageComponent implements OnInit, OnDestroy {
             content_format: 'markdown'
         }
 
-        this._client.addPost(data)
+        this.client.addPost(data)
             .subscribe(
             res => this.post = res,
             err => alert(err),

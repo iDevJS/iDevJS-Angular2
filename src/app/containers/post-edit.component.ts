@@ -13,7 +13,7 @@ export class PostEditPageComponent implements OnInit, OnDestroy {
     public post: Object
     private sub: any
     private _pid: string
-    constructor(private route: ActivatedRoute, private _client: Client) {
+    constructor(private route: ActivatedRoute, private client: Client) {
 
     }
     ngOnInit() {
@@ -26,7 +26,7 @@ export class PostEditPageComponent implements OnInit, OnDestroy {
         this.sub.unSubscribe()
     }
     getPost() {
-        this._client.getPost(this._pid, {
+        this.client.getPost(this._pid, {
             content_format: 'markdown'
         }).subscribe(
             res => this.post = res,
@@ -41,7 +41,7 @@ export class PostEditPageComponent implements OnInit, OnDestroy {
             node: post.node.name,
             tab: post.tab
         }
-        this._client.updatePost(this._pid, data)
+        this.client.updatePost(this._pid, data)
             .subscribe(
             res => this.post = res,
             err => alert(err),

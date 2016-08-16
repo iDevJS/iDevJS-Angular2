@@ -19,7 +19,7 @@ export class UserCommentPageComponent implements OnInit, OnDestroy {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private _client: Client
+        private client: Client
     ) { }
 
     ngOnInit() {
@@ -36,7 +36,7 @@ export class UserCommentPageComponent implements OnInit, OnDestroy {
         this.getComments(startNo, this.pageSize)
     }
     getComments(start = 0, count = 10) {
-        this._client.getUserCommentList(this.name, {
+        this.client.getUserCommentList(this.name, {
             start: start,
             count: count
         }).subscribe(

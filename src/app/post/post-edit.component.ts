@@ -1,12 +1,11 @@
 import {Component, OnInit, OnDestroy} from '@angular/core'
-import {ActivatedRoute, ROUTER_DIRECTIVES} from '@angular/router'
+import {ActivatedRoute} from '@angular/router'
 import {Client} from 'idevjs-angular-client'
 import {PostEditorComponent} from '../components/post/post-editor.component'
 
 @Component({
     selector: 'edit-post',
-    templateUrl: './post-edit.component.html',
-    directives: [PostEditorComponent, ROUTER_DIRECTIVES]
+    templateUrl: './post-edit.component.html'
 })
 
 export class PostEditPageComponent implements OnInit, OnDestroy {

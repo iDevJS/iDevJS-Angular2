@@ -1,13 +1,13 @@
-import {Component, OnInit, OnDestroy} from '@angular/core'
-import {ActivatedRoute, ROUTER_DIRECTIVES} from '@angular/router'
-import {PostEditorComponent} from '../components/post/post-editor.component'
-import {Client} from 'idevjs-angular-client'
-import {IPost} from '../components/post/post'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { PostEditorComponent } from '../components/post/post-editor.component'
+import { Client } from 'idevjs-angular-client'
+import { IPost } from '../components/post/post'
 
 @Component({
     selector: 'create-post',
     templateUrl: './post-create.component.html',
-    directives: [PostEditorComponent, ROUTER_DIRECTIVES]
+    providers: [PostEditorComponent]
 })
 
 export class PostCreatePageComponent implements OnInit, OnDestroy {
@@ -29,7 +29,7 @@ export class PostCreatePageComponent implements OnInit, OnDestroy {
             this.post.node.name = params['node']
         })
     }
-    ngOnDestroy(){
+    ngOnDestroy() {
 
     }
     onSubmitPost(post) {

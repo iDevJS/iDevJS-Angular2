@@ -4,8 +4,7 @@ import {NavComponent} from '../components/header/nav.component'
 
 @Component({
     selector: 'idevjs-login',
-    templateUrl: './login.component.html',
-    directives: [LoginFormComponent, NavComponent]
+    templateUrl: './login.component.html'
 })
 
 export class LoginComponent {

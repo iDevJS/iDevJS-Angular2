@@ -8,6 +8,7 @@ import 'rxjs/add/operator/delay'
 @Injectable()
 export class AuthService {
   private isLoggedIn: boolean = false
+  public redirectUrl: string
 
   constructor() {
     this.isLoggedIn = !!localStorage.getItem('idevjs_token')

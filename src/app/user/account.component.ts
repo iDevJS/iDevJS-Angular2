@@ -1,8 +1,8 @@
-import {Component, OnInit, OnDestroy} from '@angular/core'
-import {Router, ActivatedRoute, ROUTER_DIRECTIVES} from '@angular/router'
-import {UserPostItemComponent} from '../components/post/user-post-item.component'
-import {UserCommentItemComponent} from '../components/comment/user-comment-item.component'
-import {Client} from 'idevjs-angular-client'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Router, ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router'
+import { UserPostItemComponent } from '../components/post/user-post-item.component'
+import { UserCommentItemComponent } from '../components/comment/user-comment-item.component'
+import { Client } from 'idevjs-angular-client'
 
 @Component({
     templateUrl: './account.component.html',
